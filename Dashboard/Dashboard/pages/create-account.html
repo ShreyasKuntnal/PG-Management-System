@@ -45,34 +45,37 @@
                     class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none dark:text-gray-300 focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                   >
                     <option>Manager</option>
-                    <option>Newbie</option>
+                    <!--<option>Newbie</option>-->
                     <option>Student</option>
                   </select>
                 </label>
+                <form id="myForm" onsubmit="return validate()" action="./login.html">
               </label>
               <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Email</span>
-                <input
+                <input id="mail"
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                  placeholder="username@gmail.com"
+                  placeholder="username@gmail.com" required
                 />
+                <label  id="usr" style="color: red; visibility:hidden;">Incorrect Email</label>
               </label>
               <label class="block mt-4 text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Password</span>
-                <input
+                <input id="pass1"
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="***************"
-                  type="password"
+                  type="password" required
                 />
+                <label  id="visi" style="color: red; visibility:hidden;">Password should be in the form</label>
               </label>
               <label class="block mt-4 text-sm">
                 <span class="text-gray-700 dark:text-gray-400">
                   Confirm password
                 </span>
-                <input
+                <input id="pass2"
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="***************"
-                  type="password"
+                  type="password" required
                 />
               </label>
 
@@ -81,6 +84,7 @@
                   <input
                     type="checkbox"
                     class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                    required
                   />
                   <span class="ml-2">
                     I agree to the
@@ -88,18 +92,25 @@
                   </span>
                 </label>
               </div>
-              <a
+              <input
+              class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+              type="submit" value="Create account">
+              <!--<a
                 class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
                 href="./login.html"
               >
                 Create account
-              </a>
-              <a
+              </a>-->
+              <input 
               class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+              type="reset" value="Reset" onclick="reset1()">
+              <!--<a
+              
               href="../../../index.html"
             >
               Cancel
-            </a>
+            </a>-->
+          </form>
               <hr class="my-8" />
               <p class="mt-4">
                 <a
@@ -114,5 +125,81 @@
         </div>
       </div>
     </div>
+    <script>
+      function validate()
+      {
+        var pss1=document.getElementById("pass1");
+        var pss2=document.getElementById("pass2");
+        var em=document.getElementById("mail");
+        var ptr=/^[A-Z][a-z]{2,100}\d{1,10}@(gmail)\.(com)$/gm;
+        //var ptr1=/^[A-Z][a-z]{2,100}@(gmail)\.(com)$/gm;
+        var ptr2=/^[A-Z][a-z]{2,100}[@*_#\$%]\d{2,10}/;
+        if(em.value.trim()=='')
+        {
+          alert("You have not Entered Email");
+          em.value="";
+          em.style.border="2px solid red";
+          return false;
+        }
+        else if(pss1.value.trim()=='')
+        {
+          alert("You have not Entered Password");
+          pss1.value="";
+          em.style.border="0px solid white";
+          pss1.style.border="2px solid red";
+          return false;
+        }
+        else if(pss2.value.trim()=='')
+        {
+          alert("You have not Entered Confirm Password");
+          pss2.value="";
+          em.style.border="0px";
+          pss1.style.border="0px";
+          pss2.style.border="2px solid red";
+          document.getElementById("myForm").onsubmit= validate;
+          return false;
+        }
+        /*else if(em.value.match(ptr) && pss.value.match(ptr2))
+        {
+          document.getElementById("myForm").action="../dashman.html";
+          return true;
+        }*/
+        
+        else if(!em.value.match(ptr))
+        {
+          document.getElementById("usr").visibility="visible";
+          return false;
+        }
+        /*else if(em.value.match(ptr1) && pss.value.match(ptr2))
+        {
+          document.getElementById("myForm").action="../dashstu2.html";
+          return true;
+        }*/
+        else if(!pss1.value.match(ptr2))
+        {
+          //alert("Password should be entered in the form");
+          pss1.style.border="2px solid red";
+         document.getElementById("visi").style.visibility="visible";
+          return false;
+        }
+        else if(pss1.value != pss2.value)
+        {
+          alert("Password not matched");
+          return false;
+          
+        }
+        else if(pss2.value == pss1.value)
+        {
+          return true;
+        }
+        else{
+          return true;
+        }
+      }
+      function reset1()
+      { 
+        window.location="create-account.html";
+      }
+    </script>
   </body>
 </html>

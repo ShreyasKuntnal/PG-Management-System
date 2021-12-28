@@ -38,13 +38,11 @@
               >
                 Login
               </h1>
-              <form onsubmit="return validate()" action="../index.html">
+              <form id="myForm" onsubmit="return validate()" action="../dashman.html" >
               <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Email</span>
 
                 <input id="mail"
-                <input id="ema"
-
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="username@gmail.com" required
                 />
@@ -66,25 +64,7 @@
               value="Log In">
               <input class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
                type="reset" value="Reset" onclick="reset1()" >
-            </form>
-
-             
-              
-              <input type="submit" value="Login" 
-              class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-              onclick="validate()">
-              <a
-              href="../index.html" 
-            >
-              </a>
-              <a
-                class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-                href="../../../index.html"
-              >
-                Cancel
-              </a>
-
-
+            </form> 
               <hr class="my-8" />
 
               <button
@@ -135,8 +115,9 @@
       {
         var pss=document.getElementById("pass");
         var em=document.getElementById("mail");
-        var ptr=/[A-Z]/;
-        var ptr2=/\d{2}/;
+        var ptr=/^[A-Z][a-z]{2,100}\d{1}@(gmail)\.(com)$/gm;
+        var ptr1=/^[A-Z][a-z]{2,100}\d{2}@(gmail)\.(com)$/gm;
+        var ptr2=/^[A-Z][a-z]{2,100}[@*_#\$%]\d{2,10}/;
         if(pss.value.trim()=='')
         {
           alert("You have not Entered Password");
@@ -149,11 +130,21 @@
           em.style.border="2px solid red";
           return false;
         }
-        else if(!em.value.match(ptr))
+        else if(em.value.match(ptr) && pss.value.match(ptr2))
+        {
+          document.getElementById("myForm").action="../dashman.html";
+          return true;
+        }
+        else if(!em.value.match(ptr) && pss.value.match(ptr2))
         {
           em.style.border="2px solid red";
           document.getElementById("usr").style.visibility="visible";
           return false;
+        }
+        else if(em.value.match(ptr1) && pss.value.match(ptr2))
+        {
+          document.getElementById("myForm").action="../dashstu2.html";
+          return true;
         }
         else if(!pss.value.match(ptr2))
         {
@@ -162,7 +153,7 @@
           return false;
         }
         else{
-          return true;
+          return false;
         }
       }
       function reset1()

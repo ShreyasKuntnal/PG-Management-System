@@ -568,6 +568,7 @@
             >
               Create PG<br><hr>
             </h4>
+            <form onsubmit="return validate()" action="dashman.html">
             <div
               class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
             >
@@ -575,7 +576,7 @@
                 <span class="text-gray-700 dark:text-gray-400">PG Name</span>
                 <input
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                  placeholder="Your Name"
+                  placeholder="Your Name" required
                 />
               </label>
 
@@ -591,7 +592,7 @@
                       type="radio"
                       class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                       name="accountType"
-                      value="personal"
+                      value="personal" required
                     />
                     <span class="ml-2">Male</span>
                   </label>
@@ -602,7 +603,7 @@
                       type="radio"
                       class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                       name="accountType"
-                      value="busines"
+                      value="busines" required
                     />
                     <span class="ml-2">Female</span>
                   </label>
@@ -614,7 +615,7 @@
                 <textarea
                   class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                   rows="3"
-                  placeholder="Enter Your Address"
+                  placeholder="Enter Your Address" required
                 ></textarea>
               </label>
 
@@ -624,7 +625,7 @@
                 </span>
                 <select
                   class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                >
+                 required>
                   <option>Andhra Pradesh</option>
                   <option>Karnataka</option>
                   <option>Telangana</option>
@@ -646,7 +647,7 @@
                       type="checkbox"
                       class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                       name="accountType"
-                      value="personal"
+                      value="personal" required
                     />
                     <span class="ml-2">Food</span>
                   </label>
@@ -735,10 +736,11 @@
 
               <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Advance Amount</span>
-                <input
+                <input id="amount1"
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                  placeholder="Enter Amount"
+                  placeholder="Enter Amount" required
                 />
+                <label id="amt1" style="color:red; visibility: hidden;">Please enter correct amount</label>
               </label>
 
               <label class="block mt-4 text-sm">
@@ -747,7 +749,7 @@
                 </span>
                 <select
                   class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                >
+               required>
                   <option>Monthly</option>
                   <option>Quaterly</option>
                   <option>Halfyearly</option>
@@ -757,17 +759,18 @@
 
               <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Amount Per Person</span>
-                <input
+                <input id="amount2"
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                  placeholder="Enter Amount"
+                  placeholder="Enter Amount" required 
                 />
+                <label id="amt2" style="color:red; visibility: hidden;">Please enter correct amount</label>
               </label>
               <div class="flex mt-6 text-sm">
                 <label class="flex items-center dark:text-gray-400">
                   <input
                     type="checkbox"
                     class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                  />
+                  required />
                   <span class="ml-2">
                     I agree to the
                     <span class="underline">privacy policy</span>
@@ -783,23 +786,49 @@
                 <a href="dashman.html">Cancel</a>
               </button>
               
-              <button
-                 onclick="pay()" class="px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-                >
-                  <a href="dashman.html" >Create</a>
-
+              <button>
+                  <a href="#" ></a>
+                  <input
+                  class="px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+                  type="submit" value="Create">
                 </button>
             </div>
+            </form>
             </div>
           </div>
         </main>
       </div>
     </div>
     <script>
-      function pay()
+     function validate(){
+     var amt1=document.getElementById("amount1");
+     var amt2=document.getElementById("amount2");
+     var ptr=/\d+/;
+     if(!amt1.value.match(ptr))
+     {
+      document.getElementById("amt2").style.visibility="hidden";
+      document.getElementById("amt1").style.visibility="visible";
+      amt1.value="";
+      return false;
+     }
+     else if(!amt2.value.match(ptr))
+     {
+      document.getElementById("amt1").style.visibility="hidden";
+      document.getElementById("amt2").style.visibility="visible";
+      amt2.value="";
+      return false;
+     }
+     else{
+      document.getElementById("amt1").style.visibility="hidden";
+      document.getElementById("amt2").style.visibility="hidden";
+       alert("Created PG");
+       return true;
+     }
+    }
+    function pay()
      {
        alert("PG Added Succesfully");
-     }
+           }
     </script>
   </body>
 </html>

@@ -120,16 +120,18 @@
         var ptr2=/[A-Z a-z]*[@*_#\$%]\d{0,10}/;
         if(em.value.trim()=='')
         {
-          alert("You have not Entered Password");
+          alert("You have not Entered Email");
+          em.value="";
           //pss.style.border="2px solid red";
           em.style.border="2px solid red";
           return false;
         }
         else if(pss.value.trim()=='')
         {
-          alert("You have not Entered Email");
+          alert("You have not Entered Password");
           em.style.border="0px solid red";
           pss.style.border="2px solid red";
+          pss.value="";
           return false;
         }
         else if(em.value.match(ptr))

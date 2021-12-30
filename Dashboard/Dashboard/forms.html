@@ -574,7 +574,7 @@
             >
               <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">PG Name</span>
-                <input
+                <input id="namepg"
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="Your Name" required
                 />
@@ -803,7 +803,15 @@
      function validate(){
      var amt1=document.getElementById("amount1");
      var amt2=document.getElementById("amount2");
+     var name=document.getElementById("namepg");
      var ptr=/\d+/;
+     var nameptr=/^[A-Z a-z]/;
+     if(!name.value.match(nameptr))
+     {
+      alert("PG Name should start with Alphabet");
+      name.value="";
+      return false;
+     }
      if(!amt1.value.match(ptr))
      {
       document.getElementById("amt2").style.visibility="hidden";

@@ -92,15 +92,9 @@
                   </span>
                 </label>
               </div>
-              <input
+              <input type="submit"
               class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-              type="submit" value="Create account">
-              <!--<a
-                class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-                href="./login.html"
-              >
-                Create account
-              </a>-->
+               value="Create account">
               <input 
               class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
               type="reset" value="Reset" onclick="reset1()">
@@ -131,9 +125,9 @@
         var pss1=document.getElementById("pass1");
         var pss2=document.getElementById("pass2");
         var em=document.getElementById("mail");
-        var ptr=/^[A-Z][a-z]{2,100}\d{1,10}@(gmail)\.(com)$/gm;
+        var ptr=/^[A-Z a-z]*\d{0,2}@(gmail)\.(com)$/gm;
         //var ptr1=/^[A-Z][a-z]{2,100}@(gmail)\.(com)$/gm;
-        var ptr2=/^[A-Z][a-z]{2,100}[@*_#\$%]\d{2,10}/;
+        var ptr2=/[A-Z a-z]*[@*_#\$%]\d{2,10}/;
         if(em.value.trim()=='')
         {
           alert("You have not Entered Email");
@@ -149,51 +143,31 @@
           pss1.style.border="2px solid red";
           return false;
         }
-        else if(pss2.value.trim()=='')
+        else if(em.value.match(ptr))
         {
-          alert("You have not Entered Confirm Password");
-          pss2.value="";
-          em.style.border="0px";
-          pss1.style.border="0px";
-          pss2.style.border="2px solid red";
-          document.getElementById("myForm").onsubmit= validate;
+          if(pss1.value.match(ptr2))
+          {
+            if(pss1.value == pss2.value)
+            {
+              return true;
+            }
+            else{
+              pss2.style.border="2px solid red";
+              alert("Password not matched");
           return false;
-        }
-        /*else if(em.value.match(ptr) && pss.value.match(ptr2))
-        {
-          document.getElementById("myForm").action="../dashman.html";
-          return true;
-        }*/
-        
-        else if(!em.value.match(ptr))
-        {
-          document.getElementById("usr").visibility="visible";
+            }
+          }
+          else{
+            document.getElementById("usr").style.visibility="hidden";
+            pss1.style.border="2px solid red";
+            alert("Password is weak\nPlease enter:\n1.One Uppercase letter\n2.One Special letter\n3.Atleat one digit");
+         //document.getElementById("visi").style.visibility="visible";
           return false;
+            }
         }
-        /*else if(em.value.match(ptr1) && pss.value.match(ptr2))
-        {
-          document.getElementById("myForm").action="../dashstu2.html";
-          return true;
-        }*/
-        else if(!pss1.value.match(ptr2))
-        {
-          //alert("Password should be entered in the form");
-          pss1.style.border="2px solid red";
-         document.getElementById("visi").style.visibility="visible";
+        else if(!em.value.match(ptr)){
+          document.getElementById("usr").style.visibility="visible";
           return false;
-        }
-        else if(pss1.value != pss2.value)
-        {
-          alert("Password not matched");
-          return false;
-          
-        }
-        else if(pss2.value == pss1.value)
-        {
-          return true;
-        }
-        else{
-          return true;
         }
       }
       function reset1()

@@ -115,45 +115,51 @@
       {
         var pss=document.getElementById("pass");
         var em=document.getElementById("mail");
-        var ptr=/^[A-Z][a-z]{2,100}\d{1}@(gmail)\.(com)$/gm;
-        var ptr1=/^[A-Z][a-z]{2,100}\d{2}@(gmail)\.(com)$/gm;
-        var ptr2=/^[A-Z][a-z]{2,100}[@*_#\$%]\d{0,10}/;
+        var ptr=/^[A-Z][a-z]*\d{1}@(gmail)\.(com)$/gm;
+        var ptr1=/^[A-Z][a-z]*\d{2}@(gmail)\.(com)$/gm;
+        var ptr2=/^[A-Z][a-z]*[@*_#\$%]\d{0,10}/;
         if(pss.value.trim()=='')
         {
           alert("You have not Entered Password");
-          pss.style.border="2px solid red";
+          //pss.style.border="2px solid red";
           return false;
         }
         else if(em.value.trim()=='')
         {
           alert("You have not Entered Email");
-          em.style.border="2px solid red";
+          //em.style.border="2px solid red";
           return false;
         }
-        else if(em.value.match(ptr) && pss.value.match(ptr2))
+        else if(em.value.match(ptr))
         {
-          document.getElementById("myForm").action="../dashman.html";
-          return true;
+          if(pss.value.match(ptr2))
+          {
+            document.getElementById("myForm").action="../dashman.html";
+            return true;
+          }
+          else
+          {
+          pss.style.border="2px solid red";
+          document.getElementById("visi").style.visibility="visible";
+          return false;}
+          //return true;
         }
-        else if(!em.value.match(ptr) && pss.value.match(ptr2))
+        /*else if(!em.value.match(ptr))
         {
           em.style.border="2px solid red";
           document.getElementById("usr").style.visibility="visible";
           return false;
-        }
-        else if(em.value.match(ptr1) && pss.value.match(ptr2))
+        }*/
+        else if(em.value.match(ptr1))
         {
+         if(pss.value.match(ptr2)){
           document.getElementById("myForm").action="../dashstu2.html";
-          return true;
-        }
-        else if(!pss.value.match(ptr2))
-        {
-          pss.style.border="2px solid red";
+          }
+          else{
+            pss.style.border="2px solid red";
           document.getElementById("visi").style.visibility="visible";
           return false;
-        }
-        else{
-          return false;
+          }
         }
       }
       function reset1()

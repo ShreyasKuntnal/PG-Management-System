@@ -643,10 +643,15 @@
           
           var total=count*6000;
           event.target.classList.add("selected");
-          document.getElementById("count").innerText=count;
-          document.getElementById("total").innerText=total;
-
           }
+          else if (event.target.classList.contains('selected') && count>0){
+          count--;
+          var total=count*6000;
+          event.target.classList.add("reselected");
+          }
+          document.getElementById("count").innerText=count;
+          if(total!=undefined)
+          document.getElementById("total").innerText=total;
         })
       }
     </script>

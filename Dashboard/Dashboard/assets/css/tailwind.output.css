@@ -156,10 +156,13 @@ a{color:inherit;text-decoration:inherit}button,input,optgroup,select,textarea{pa
     margin: 3px 3px;
     
   }
+  .seat.reselected {
+    background-color: #afced6;
+  } 
 
-  .seat.selected {
+   .seat.selected {
     background-color: #037192;
-  }
+  } 
 
   .seat.occupied {
     background-color: #1b257e;

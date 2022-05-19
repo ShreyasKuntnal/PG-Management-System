@@ -1,5 +1,5 @@
-# PG Management System-Web Development(Front End)
-In PGAS project we use HTML and css. It has two modules:-
+# HotePayant/PG Management System-Web Development(Front End)
+In HotePayant project we use HTML and css. It has two modules:-
 
 1.PG Owner Module
 

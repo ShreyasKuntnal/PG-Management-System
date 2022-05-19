@@ -1,5 +1,5 @@
 # HotePayant/PG Management System-Web Development(Front End)
-In HotePayant project we use HTML and css. It has two modules:-
+In HotePayant project we use HTML,CSS and JavaScript. It has two modules:-
 
 1.PG Owner Module
 

@@ -3,32 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Manager Dashboard</title>
+    <title>Forms-Hote Payant</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./assets/css/tailwind.output.css" />
+    <link rel="stylesheet" href="../assets/css/tailwind.output.css" />
     <script
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
       defer
     ></script>
-    <script src="./assets/js/init-alpine.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
-    />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
-      defer
-    ></script>
-    <script src="./assets/js/charts-lines.js" defer></script>
-    <script src="./assets/js/charts-pie.js" defer></script>
+    <script src="../assets/js/init-alpine.js"></script>
   </head>
   <body>
     <div
       class="flex h-screen bg-gray-50 dark:bg-gray-900"
-      :class="{ 'overflow-hidden': isSideMenuOpen }"
+      :class="{ 'overflow-hidden': isSideMenuOpen}"
     >
       <!-- Desktop sidebar -->
       <aside
@@ -37,45 +27,42 @@
         <div class="py-4 text-gray-500 dark:text-gray-400">
           <a
             class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
-            href="index.html"
+            href="../Dashboard/index.html"
           >
             Hote Payant
           </a>
           <ul class="mt-6">
             <li class="relative px-6 py-3">
-                <span
-                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                aria-hidden="true"
-              ></span>
-                <a
-                  class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                  href="dashman.html"
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="dashman.html"
+              >
+                <svg
+                  class="w-5 h-5"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
                 >
-                  <svg
-                    class="w-5 h-5"
-                    aria-hidden="true"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                    ></path>
-                  </svg>
-                  <span class="ml-4">Manager Dashboard</span>
-                </a>
-              </li>
-                  </ul>
-                </template>
-              </li>
+                  <path
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  ></path>
+                </svg>
+                <span class="ml-4">Manager Dashboard</span>
+              </a>
+            </li>
           </ul>
           <ul>
             <li class="relative px-6 py-3">
+              <span
+                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                aria-hidden="true"
+              ></span>
               <a
-                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
                 href="forms.html"
               >
                 <svg
@@ -95,7 +82,6 @@
                 <span class="ml-4">Forms</span>
               </a>
             </li>
-           
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
@@ -122,7 +108,7 @@
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="Payments.html"
+                href="payments.html"
               >
                 <svg
                   class="w-5 h-5"
@@ -138,11 +124,9 @@
                     d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
                   ></path>
                 </svg>
-                <span class="ml-4">Payments</span> 
+                <span class="ml-4">Payments</span>
               </a>
             </li>
-            
-
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
@@ -185,9 +169,12 @@
                 <span class="ml-4">Issues</span>
               </a>
             </li>
-            
+                </ul>
+              </template>
+            </li>
           </ul>
-          
+          <div class="px-6 my-6">
+          </div>
         </div>
       </aside>
       <!-- Mobile sidebar -->
@@ -217,18 +204,14 @@
         <div class="py-4 text-gray-500 dark:text-gray-400">
           <a
             class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
-            href="index.html"
+            href="../Dashboard/index.html"
           >
             Hote Payant
           </a>
           <ul class="mt-6">
             <li class="relative px-6 py-3">
-              <span
-                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                aria-hidden="true"
-              ></span>
               <a
-                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="dashman.html"
               >
                 <svg
@@ -245,14 +228,18 @@
                     d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
                   ></path>
                 </svg>
-                <span class="ml-4">Dashboard</span>
+                <span class="ml-4">Manager Dashboard</span>
               </a>
             </li>
           </ul>
           <ul>
             <li class="relative px-6 py-3">
+              <span
+                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                aria-hidden="true"
+              ></span>
               <a
-                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
                 href="forms.html"
               >
                 <svg
@@ -272,7 +259,6 @@
                 <span class="ml-4">Forms</span>
               </a>
             </li>
-
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
@@ -296,11 +282,10 @@
                 <span class="ml-4">Charts</span>
               </a>
             </li>
-            
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="Payments.html"
+                href="payments.html"
               >
                 <svg
                   class="w-5 h-5"
@@ -319,7 +304,6 @@
                 <span class="ml-4">Payments</span>
               </a>
             </li>
-           
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
@@ -362,19 +346,18 @@
                 <span class="ml-4">Issues</span>
               </a>
             </li>
-            
-          </ul>
-          
+            <div class="px-6 my-6">
+          </div>
         </div>
       </aside>
-      <div class="flex flex-col flex-1 w-full">
+      <div class="flex flex-col flex-1">
         <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
           <div
             class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300"
           >
             <!-- Mobile hamburger -->
             <button
-              class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
+              class="p-1 -ml-1 mr-5 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
               @click="toggleSideMenu"
               aria-label="Menu"
             >
@@ -396,10 +379,11 @@
               <div
                 class="relative w-full max-w-xl mr-6 focus-within:text-purple-500"
               >
+                <div class="absolute inset-y-0 flex items-center pl-2">
+                </div>
               </div>
             </div>
             <ul class="flex items-center flex-shrink-0 space-x-6">
-              
               <!-- Notifications menu -->
               <li class="relative">
                 <button
@@ -433,6 +417,7 @@
                     @click.away="closeNotificationsMenu"
                     @keydown.escape="closeNotificationsMenu"
                     class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700"
+                    aria-label="submenu"
                   >
                     <li class="flex">
                       <a
@@ -519,11 +504,33 @@
                         <span>Profile</span>
                       </a>
                     </li>
-                    
                     <li class="flex">
                       <a
                         class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="pages/login.html"
+                        href="#"
+                      >
+                        <svg
+                          class="w-4 h-4 mr-3"
+                          aria-hidden="true"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                          ></path>
+                          <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        <span>Settings</span>
+                      </a>
+                    </li>
+                    <li class="flex">
+                      <a
+                        class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                        href="#"
                       >
                         <svg
                           class="w-4 h-4 mr-3"
@@ -548,159 +555,289 @@
             </ul>
           </div>
         </header>
-        <main class="h-full overflow-y-auto">
+        <main class="h-full pb-16 overflow-y-auto">
           <div class="container px-6 mx-auto grid">
             <h2
               class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
             >
-              Dashboard<hr>
+              Forms
             </h2>
-            <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
-              <!-- Card -->
-              <div
-                class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
-              >
-                <div
-                  class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500"
-                >
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"
-                    ></path>
-                  </svg>
-                </div>
-                <div>
-                  <p
-                    class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
-                  >
-                    Total No. of Staff
-                  </p>
-                  <p
-                    class="text-lg font-semibold text-gray-700 dark:text-gray-200"
-                  >
-                    20
-                  </p>
-                </div>
-              </div>
-              <!-- Card -->
-              <div
-                class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
-              >
-                <div
-                  class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500"
-                >
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fill-rule="evenodd"
-                      d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                </div>
-                <div>
-                  <p
-                    class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
-                  >
-                    Account balance
-                  </p>
-                  <p
-                    class="text-lg font-semibold text-gray-700 dark:text-gray-200"
-                  >
-                  ₹ 46,760.89
-                  </p>
-                </div>
-              </div>
-              <!-- Card -->
-              <div
-                class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
-              >
-                <div
-                  class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500"
-                >
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
-                    ></path>
-                  </svg>
-                </div>
-                <div>
-                  <p
-                    class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
-                  >
-                    New Bookings
-                  </p>
-                  <p
-                    class="text-lg font-semibold text-gray-700 dark:text-gray-200"
-                  >
-                    28
-                  </p>
-                </div>
-              </div>
-              <!-- Card -->
-              <div
-                class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
-              >
-                <div
-                  class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500"
-                >
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fill-rule="evenodd"
-                      d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                </div>
-                <div>
-                  <p
-                    class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
-                  >
-                    Pending Issues
-                  </p>
-                  <p
-                    class="text-lg font-semibold text-gray-700 dark:text-gray-200"
-                  >
-                    13
-                  </p>
-                </div>
-                
-              </div>
-            </div>
-            <div
-            class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
-          >
-            <div
-              class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500"
+<!-- General elements -->
+            <h4
+              class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
             >
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                
-                  d="M7 4 h5 v6 h6 v5 h-7 v5 h-4 v-7 h-5 v-5 z-10"
-                ></path>
-              </svg>
-            </div>
-            <div>
-              <p
-                class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
-              >
-                Add PG
-              </p>
-              <p
-                class="text-lg font-semibold text-gray-700 dark:text-gray-200"
-              >
-              <button class="b1">
-                <span><a href="forms.html">Add</a></span>
-              </button>  
-            </p>
-            </div>
-          </div>
-                  </div>
+              Create PG<br><hr>
+            </h4>
+            <form onsubmit="return validate()" action="dashman.html">
+            <div
+              class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
+            >
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">PG Name</span>
+                <input id="namepg"
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  placeholder="Your Name" required
+                />
+              </label>
+
+              <div class="mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400">
+                  PG Type
+                </span>
+                <div class="mt-2">
+                  <label
+                    class="inline-flex items-center text-gray-600 dark:text-gray-400"
+                  >
+                    <input
+                      type="radio"
+                      class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                      name="accountType"
+                      value="personal" required
+                    />
+                    <span class="ml-2">Male</span>
+                  </label>
+                  <label
+                    class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400"
+                  >
+                    <input
+                      type="radio"
+                      class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                      name="accountType"
+                      value="busines" required
+                    />
+                    <span class="ml-2">Female</span>
+                  </label>
                 </div>
               </div>
+
+              <label class="block mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Address</span>
+                <textarea
+                  class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                  rows="3"
+                  placeholder="Enter Your Address" required
+                ></textarea>
+              </label>
+
+              <label class="block mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400">
+                  State
+                </span>
+                <select
+                  class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                 required>
+                  <option>Andhra Pradesh</option>
+                  <option>Karnataka</option>
+                  <option>Telangana</option>
+                  <option>Tamilnadu</option>
+                  <option>Kerala</option>
+                  <option>Goa</option>
+                </select>
+              </label>
+
+              <div class="mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400">
+                  Choose Amenities
+                </span>
+                <div class="mt-2">
+                  <label
+                    class="inline-flex items-center text-gray-600 dark:text-gray-400"
+                  >
+                    <input
+                      type="checkbox"
+                      class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                      name="accountType"
+                      value="personal" required
+                    />
+                    <span class="ml-2">Food</span>
+                  </label>
+                  <label
+                    class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400"
+                  >
+                    <input
+                      type="checkbox"
+                      class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                      name="accountType"
+                      value="busines"
+                    />
+                    <span class="ml-2">Wifi</span>
+                  </label>
+                  <label
+                    class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400"
+                  >
+                    <input
+                      type="checkbox"
+                      class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                      name="accountType"
+                      value="busines"
+                    />
+                    <span class="ml-2">T.V</span>
+                  </label>
+                  <label
+                    class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400"
+                  >
+                    <input
+                      type="checkbox"
+                      class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                      name="accountType"
+                      value="busines"
+                    />
+                    <span class="ml-2">Washing Machine</span>
+                  </label>
+                  <label
+                    class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400"
+                  >
+                    <input
+                      type="checkbox"
+                      class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                      name="accountType"
+                      value="busines"
+                    />
+                    <span class="ml-2">AC</span>
+                  </label>
+                  <label
+                    class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400"
+                  >
+                    <input
+                      type="checkbox"
+                      class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                      name="accountType"
+                      value="busines"
+                    />
+                    <span class="ml-2">Gym</span>
+                  </label>
+                  <label
+                    class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400"
+                  >
+                    <input
+                      type="checkbox"
+                      class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                      name="accountType"
+                      value="busines"
+                    />
+                    <span class="ml-2">Parking Place</span>
+                  </label>
+                </div>
+              </div>
+
+              <label class="block mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400">
+                  Sharing Type
+                </span>
+                <select
+                  class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                >
+                  <option>Single</option>
+                  <option>Double</option>
+                  <option>Triple</option>
+                  <option>Four</option>
+                </select>
+              </label>
+
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Advance Amount</span>
+                <input id="amount1"
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  placeholder="Enter Amount" required
+                />
+                <label id="amt1" style="color:red; visibility: hidden;">Please enter correct amount</label>
+              </label>
+
+              <label class="block mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400">
+                  Agreement Duration
+                </span>
+                <select
+                  class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+               required>
+                  <option>Monthly</option>
+                  <option>Quaterly</option>
+                  <option>Halfyearly</option>
+                  <option>Yearly</option>
+                </select>
+              </label>
+
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Amount Per Person</span>
+                <input id="amount2"
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  placeholder="Enter Amount" required 
+                />
+                <label id="amt2" style="color:red; visibility: hidden;">Please enter correct amount</label>
+              </label>
+              <div class="flex mt-6 text-sm">
+                <label class="flex items-center dark:text-gray-400">
+                  <input
+                    type="checkbox"
+                    class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                  required />
+                  <span class="ml-2">
+                    I agree to the
+                    <span class="underline">privacy policy</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            
+            <div>
+              <a href="dashman.html"><button
+                class="px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+                type="reset"
+              >
+                Cancel
+              </button></a>
+              
+              <button>
+                  <a href="#" ></a>
+                  <input
+                  class="px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+                  type="submit" >
+                </button>
+            </div>
+            </form>
             </div>
           </div>
         </main>
       </div>
     </div>
+    <script>
+     function validate(){
+     var amt1=document.getElementById("amount1");
+     var amt2=document.getElementById("amount2");
+     var name=document.getElementById("namepg");
+     var ptr=/\d+/;
+     var nameptr=/^[A-Z a-z]/;
+     if(!name.value.match(nameptr))
+     {
+      alert("PG Name should start with Alphabet");
+      name.value="";
+      return false;
+     }
+     if(!amt1.value.match(ptr))
+     {
+      document.getElementById("amt2").style.visibility="hidden";
+      document.getElementById("amt1").style.visibility="visible";
+      amt1.value="";
+      return false;
+     }
+     else if(!amt2.value.match(ptr))
+     {
+      document.getElementById("amt1").style.visibility="hidden";
+      document.getElementById("amt2").style.visibility="visible";
+      amt2.value="";
+      return false;
+     }
+     else{
+      document.getElementById("amt1").style.visibility="hidden";
+      document.getElementById("amt2").style.visibility="hidden";
+       alert("Created PG");
+       return true;
+     }
+    }
+    function pay()
+     {
+       alert("PG Added Succesfully");
+           }
+    </script>
   </body>
 </html>

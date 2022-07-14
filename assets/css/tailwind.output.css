@@ -97,7 +97,7 @@ a{color:inherit;text-decoration:inherit}button,input,optgroup,select,textarea{pa
     right: 0;
    }
    .img-mani{
-       background-image: url("Hôte\ Payant.png");
+       background-image: url("../images/Hôte_Payant1.png");
        height:89vh;
        background-size: cover;
        background-position: center;

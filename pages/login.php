@@ -38,56 +38,30 @@
               >
                 Login
               </h1>
-              <form id="myForm" onsubmit="return validate()" action="../dashman.html" >
+              <form method="post" enctype = "multipart/form-data"  >
               <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Email</span>
 
-                <input id="mail"
+                <input name="mail" type="email"
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="username@gmail.com" required
-                   pattern="^[A-Z][a-z]*\d*@(gmail)\.(com)$"
+                   
                 />
-                <label  id="usr" style="color: red; visibility:hidden;">Incorrect username</label>
               </label>
               <label class="block mt-4 text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Password</span>
-                <input id="pass"
+                <input name="pass" id="pass"
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="***************"
                   type="password" required
                 />
                 <label  id="visi" style="color: red; visibility:hidden;">Incorrect Password</label>
               </label>
-              <!-- You should use a button here, as the anchor is only used for the example  -->
-
-              <input type="submit"
+              <input type="submit" name="login"
               class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
               value="Log In">
-              <input class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-               type="reset" value="Reset" onclick="reset1()" >
             </form> 
               <hr class="my-8" />
-
-              <!-- <button
-                class="flex items-center justify-center w-full px-4 py-2 text-sm font-medium leading-5 text-white text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray"
-              >
-              <a href="#" class="social_box fb">
-                    <span class="icon"><i class="fab fa-facebook"></i></span>
-                    <span class="icon_title"> Facebook</span>
-
-                </a>
-              </button>
-              <button
-                class="flex items-center justify-center w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-white text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray"
-              >
-                
-                <a href="#" class="social_box fb">
-                  <span class="icon"><i class="fab fa-twitter"></i></span>
-                  <span class="icon_title"> </span>
-
-                </a>
-                Twitter
-              </button> -->
 
               <p class="mt-4">
                 <a
@@ -110,70 +84,60 @@
         </div>
       </div>
     </div>
-
-    <script>
-      function validate()
+    <?php 
+      require '../DatabaseConnection/dbcon.php';
+      if(isset($_POST['login']))
       {
-        var pss=document.getElementById("pass");
-        var em=document.getElementById("mail");
-        var ptr=/^[A-Z][a-z]*\d{1}@(gmail)\.(com)$/gm;
-        var ptr1=/^[A-Z][a-z]*\d{2}@(gmail)\.(com)$/gm;
-        var ptr2=/[A-Z a-z]*[@*_#\$%]\d{0,10}/;
-        if(em.value.trim()=='')
+        $email=$_POST['mail'];
+        $pass=$_POST['pass'];
+
+        $result1=$conn->query("SELECT * from manager WHERE mng_email='$email'") or die(mysqli_errno());
+        $row1 = $result1->fetch_array();
+        $nummerOfrowsOfmng=$result1->num_rows;
+        $result2=$conn->query("SELECT * from manager WHERE mng_email='$email'") or die(mysqli_errno());
+        $row2 = $result2->fetch_array();
+        $nummerOfrowsOfuser=$result2->num_rows;
+
+        if($nummerOfrowsOfmng>0)
         {
-          alert("You have not Entered Email");
-          em.value="";
-          //pss.style.border="2px solid red";
-          em.style.border="2px solid red";
-          return false;
-        }
-        else if(pss.value.trim()=='')
-        {
-          alert("You have not Entered Password");
-          em.style.border="0px solid red";
-          pss.style.border="2px solid red";
-          pss.value="";
-          return false;
-        }
-        else if(em.value.match(ptr))
-        {
-          if(pss.value.match(ptr2))
-          {
-            document.getElementById("myForm").action="../admin/dashman.html";
+          if( $row1['mng_pass'] == md5($pass)){
+            session_start();
+             $_SESSION['email']=$email;
+              ?> <script>alert("Loggined Succesfully");window.location='../admin/dashman.php'</script><?php
           }
-          else
-          {
-          pss.style.border="2px solid red";
-          document.getElementById("visi").style.visibility="visible";
-          return false;}
-        }
-        /*else if(!em.value.match(ptr))
-        {
-          em.style.border="2px solid red";
-          document.getElementById("usr").style.visibility="visible";
-          return false;
-        }*/
-        else if(em.value.match(ptr1))
-        {
-         if(pss.value.match(ptr2)){
-          document.getElementById("myForm").action="../Dashboard/dashstu2.html";
-          }
-          else{
+          else{ ?>
+          <script>
+            var pss=document.getElementById("pass");
             pss.style.border="2px solid red";
+            document.getElementById("visi").style.visibility="visible";
+          </script>
+        <?php  }
+        }
+        else if($nummerOfrowsOfuser>0){
+          if( $row2['user_pass'] == md5($pass)){
+            session_start();
+             $_SESSION['email']=$email;
+            ?> <script>alert("Loggined Succesfully");window.location='../Dashboard/dashstu2.php'</script><?php
+        }
+        else{ ?>
+        <script>
+          var pss=document.getElementById("pass");
+          pss.style.border="2px solid red";
           document.getElementById("visi").style.visibility="visible";
-          return false;
-          }
+        </script>
+      <?php  }
         }
-        else if(!em.value.match(ptr) && !em.value.match(ptr1)){
-          alert("Enter valid email address");
-          em.value="";
-          return false;
+      else{
+          ?>
+          <script type="text/javascript">
+          alert('Your account is not registered ');
+          window.location='create-account.php';
+          </script>
+          <?php
         }
+
       }
-      function reset1()
-      { 
-        window.location="login.html";
-      }
-    </script>
+    ?>
+
   </body>
 </html>

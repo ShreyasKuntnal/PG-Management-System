@@ -24,6 +24,7 @@
     ></script>
     <script src="./assets/js/charts-lines.js" defer></script>
     <script src="./assets/js/charts-pie.js" defer></script>
+    <?php ?>
   </head>
   <body>
     <div

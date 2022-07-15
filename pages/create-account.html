@@ -53,6 +53,14 @@
                 <form id="myForm" onsubmit="return validate()" action="./login.html">
               </label>
               <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Name</span>
+                <input id="name"
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  placeholder="Name" required
+                />
+                <label  id="usr1" style="color: red; visibility:hidden;">Incorrect Name</label>
+              </label>
+              <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Email</span>
                 <input id="mail"
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
@@ -126,9 +134,22 @@
         var pss1=document.getElementById("pass1");
         var pss2=document.getElementById("pass2");
         var em=document.getElementById("mail");
+        var na=document.getElementById("name");
+        var pr1=/^[A-Z a-z,.'-]+$/i
         var ptr=/^[A-Z a-z]*\d{0,2}@(gmail)\.(com)$/gm;
         //var ptr1=/^[A-Z][a-z]{2,100}@(gmail)\.(com)$/gm;
         var ptr2=/[A-Z a-z]*[@*_#\$%]\d{2,10}/;
+        if(na.value.trim()=='')
+        {
+          alert("You have not Entered Name");
+          em.value="";
+          em.style.border="2px solid red";
+          return false;
+        }
+        else if(!na.value.match(p1)){
+          document.getElementById("usr1").style.visibility="visible";
+          return false;
+        }
         if(em.value.trim()=='')
         {
           alert("You have not Entered Email");

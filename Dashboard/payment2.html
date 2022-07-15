@@ -455,10 +455,11 @@
             </ul>
           </div>
         </header>
-        <main class="h-full pb-16 overflow-y-auto">
+        <main class="h-full pb-1 overflow-y-auto">
           <div class="container px-6 mx-auto grid">
             <h2
               class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+              style="margin-top:0.5em; margin-bottom: 0.5em;"
             >
               Payments
             </h2>
@@ -552,15 +553,9 @@
                               </div>
                             </div>
                           </div>
-                          <div class=" p-3">
-                            <div class="row">
-                              <div class=" mb-md-0 ">
-                                <div class="      ">
-
-                                  <div class="mt-4 text-sm"> 
-                                    <div class="">
+                          <div class=" p-3 mb-md-0 mt-4 row text-sm" style="padding-left:0.5em;">
                                       <label
-                                        class="  text-gray-600 dark:text-gray-400"
+                                        class=" text-gray-600 dark:text-gray-400 mb-0"
                                       >
                                         <input
                                           type="radio"
@@ -591,15 +586,6 @@
                                         />
                                         <span class="ml-2">Debit Card </span>
                                       </label>
-                                      
-                                          </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                               
-                              </div>
-                            </div>
                           </div>
                         </div>
                       </div>
@@ -675,12 +661,12 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-7 mt-4">
+                  <div class="col-md-7 mt-4 mb-0 p-3">
                     <div class="card">
-                      <div class="card-header pb-0 px-3">
+                      <div class="card-header pb-01">
                         <h6 class="mb-0">Billing Information</h6>
                       </div>
-                      <div class="card-body pt-4 p-3">
+                      <div class="card-body">
                         <ul class="list-group ">
                           <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                             <div class="d-flex flex-column ">
@@ -694,6 +680,7 @@
                         </div>
                       </div>
                     </div>
+                  </div>
             </div>
           </div>
         </main>

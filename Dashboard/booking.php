@@ -534,109 +534,111 @@
             </ul>
           </div>
         </header>
-          <div class="container grid px-6 mx-auto">
-            <h2
-              class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+      <div class="container grid px-6 mx-auto">    
+        <h2
+              class="mx-auto text-2xl font-semibold text-gray-700 dark:text-gray-200"
+              style="margin-top:0.5em"
             >
-              Bookings <hr>
-          </h2>  
-    <div class="movie-container">
-      <label style="color: aliceblue;   font-size: 1em;">Select type of sharing:</label>
-      <select id="pg" style="color: rgb(255, 255, 255); background-color: #1a1c23;">
-        <option value="10">Single</option>
-        <option value="12">Double</option>
-        <option value="8">Triple</option>
-      </select>
-    </div>
+              Bookings 
+          </h2> 
+          <hr> 
+          <div class="movie-container">
+            <label style="color: aliceblue;   font-size: 1em;">Select type of sharing:</label>
+            <select id="pg" style="color: rgb(255, 255, 255); background-color: #1a1c23;">
+              <option value="10">Single</option>
+              <option value="12">Double</option>
+              <option value="8">Triple</option>
+            </select>
+          </div>
 
-    <ul class="showcase">
-      <li>
-        <div id="seat" class="seat1"></div>
-        <small class="status" style="font-size: 1em;">N/A</small>
-      </li>
-      <li>
-        <div id="seat" class="seat2"></div>
-        <small class="status" style="font-size: 1em;">Selected</small>
-      </li>
-      <li>
-        <div id="seat" class="seat3"></div>
-        <small class="status" style="font-size: 1em;">Occupied</small>
-      </li>
-    </ul>
+          <ul class="showcase">
+            <li>
+              <div id="seat" class="seat1"></div>
+              <small class="status" style="font-size: 1em;">N/A</small>
+            </li>
+            <li>
+              <div id="seat" class="seat2"></div>
+              <small class="status" style="font-size: 1em;">Selected</small>
+            </li>
+            <li>
+              <div id="seat" class="seat3"></div>
+              <small class="status" style="font-size: 1em;">Occupied</small>
+            </li>
+          </ul>
 
-    <div class="container1">
+          <div class="container1">
+            
+
+            <div class="row">
+              <div id="seat" class="seat"></div>
+              <div id="seat" class="seat"></div>
+              <div id="seat" class="seat"></div>
+              <div id="seat" class="seat"></div>
+              
+              <div id="seat" class="seat"></div>
+              <div id="seat" class="seat"></div>
+            </div>
+            <div class="row">
+              <div id="seat" class="seat"></div>
+              <div id="seat" class="seat"></div>
+              <div id="seat" class="seat"></div>
+              <div id="seat" class="seat occupied"></div>
+            
+              <div id="seat" class="seat"></div>
+              <div id="seat" class="seat"></div>
+            </div>
+            <div class="row">
+              <div id="seat" class="seat"></div>
+              <div id="seat" class="seat"></div>
+              <div id="seat" class="seat"></div>
+              <div id="seat" class="seat"></div>
+              
+              <div id="seat" class="seat occupied"></div>
+              <div id="seat" class="seat occupied"></div>
+            </div>
+            <div class="row">
+              <div id="seat" class="seat"></div>
+              <div id="seat" class="seat"></div>
+              <div id="seat" class="seat"></div>
+              <div id="seat" class="seat"></div>
+              
+              <div id="seat" class="seat"></div>
+              <div id="seat" class="seat"></div>
+            </div>
+            <div class="row">
+              <div id="seat" class="seat"></div>
+              <div id="seat" class="seat"></div>
+              <div id="seat" class="seat"></div>
+              <div id="seat" class="seat occupied"></div>
+              
+              <div id="seat" class="seat"></div>
+              <div id="seat" class="seat"></div>
+            </div>
+            <div class="row">
+              <div id="seat" class="seat"></div>
+              <div id="seat" class="seat"></div>
+              <div id="seat" class="seat"></div>
+              <div id="seat" class="seat occupied"></div>
+              
+              <div id="seat" class="seat occupied"></div>
+              <div id="seat" class="seat"></div>
+            </div>
+            <p class="text" style="color: #fff; font-size: 1em;margin:0px 0px 15px 0px">
+              You have selected <span id="count">0</span> beds for a price of ₹<span
+                id="total"
+                >0</span
+              >/-
+            </p>
+            <a href="dashstu2.html">
+              <button onclick="pay()" class="btn-home px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+                Pay
+              </button>
+            </a>
       
-
-      <div class="row">
-        <div id="seat" class="seat"></div>
-        <div id="seat" class="seat"></div>
-        <div id="seat" class="seat"></div>
-        <div id="seat" class="seat"></div>
-        
-        <div id="seat" class="seat"></div>
-        <div id="seat" class="seat"></div>
       </div>
-      <div class="row">
-        <div id="seat" class="seat"></div>
-        <div id="seat" class="seat"></div>
-        <div id="seat" class="seat"></div>
-        <div id="seat" class="seat occupied"></div>
-       
-        <div id="seat" class="seat"></div>
-        <div id="seat" class="seat"></div>
-      </div>
-      <div class="row">
-        <div id="seat" class="seat"></div>
-        <div id="seat" class="seat"></div>
-        <div id="seat" class="seat"></div>
-        <div id="seat" class="seat"></div>
-        
-        <div id="seat" class="seat occupied"></div>
-        <div id="seat" class="seat occupied"></div>
-      </div>
-      <div class="row">
-        <div id="seat" class="seat"></div>
-        <div id="seat" class="seat"></div>
-        <div id="seat" class="seat"></div>
-        <div id="seat" class="seat"></div>
-        
-        <div id="seat" class="seat"></div>
-        <div id="seat" class="seat"></div>
-      </div>
-      <div class="row">
-        <div id="seat" class="seat"></div>
-        <div id="seat" class="seat"></div>
-        <div id="seat" class="seat"></div>
-        <div id="seat" class="seat occupied"></div>
-        
-        <div id="seat" class="seat"></div>
-        <div id="seat" class="seat"></div>
-      </div>
-      <div class="row">
-        <div id="seat" class="seat"></div>
-        <div id="seat" class="seat"></div>
-        <div id="seat" class="seat"></div>
-        <div id="seat" class="seat occupied"></div>
-        
-        <div id="seat" class="seat occupied"></div>
-        <div id="seat" class="seat"></div>
-      </div>
-
-      
-    </div>
     
 
-    <p class="text" style="color: #fff; font-size: 1em;margin:0px 0px 15px 0px">
-      You have selected <span id="count">0</span> beds for a price of ₹<span
-        id="total"
-        >0</span
-      >/-
-    </p>
-    <a href="dashstu2.html">
-      <button onclick="pay()" class="btn-home px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
-        Pay
-      </button>
-    </a>
+    
     
     <script>
      function pay()

@@ -2,8 +2,8 @@
     margin-bottom: 1.5rem !important;
   }
   .py-4 {
-    padding-top: 1.5rem !important;
-    padding-bottom: 1.5rem !important;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
   .container-fluid{
     
@@ -87,6 +87,7 @@
     flex: 1 1 auto;
     padding: 1rem 1rem;
     background-color: #1a1c23;
+    border-radius: 1rem;
   }
   .card-body1 {
     flex: 1 1 auto;
@@ -311,6 +312,12 @@
   .p-3 {
     padding: 1rem !important;
   }
+  .p-4 {
+    padding: 0.4rem !important;
+  }
+  .p-0 {
+    padding: 0rem !important;
+  }
   .text-white {
     color: #fff !important;
   }
@@ -325,6 +332,9 @@
   }
   .pb-2 {
     padding-bottom: 0.5rem !important;
+  }
+  .pb-1 {
+    padding-bottom: 1rem !important;
   }
   .d-flex {
     display: flex !important;
@@ -375,6 +385,10 @@
   }
   .pb-0 {
     padding-bottom: 0 !important;
+  }
+  .pb-01 {
+    padding-bottom: 0 !important;
+    padding-top: 0.5 !important;
   }
   .col-6 {
     flex: 0 0 auto;
@@ -429,6 +443,10 @@
   }
   .mb-md-0 {
     margin-bottom: 0 !important;
+  }
+  .mb-md-01 {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
   }
   .col-lg-4 {
     flex: 0 0 auto;
@@ -506,6 +524,9 @@
   }
   .pt-4 {
     padding-top: 1.5rem !important;
+  }
+  .pt-3 {
+    padding-top: 1rem !important;
   }
   .bg-gray-100 {
     background-color: #1a1c23 !important;

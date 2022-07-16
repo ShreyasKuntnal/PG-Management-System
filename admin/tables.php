@@ -971,14 +971,17 @@
             <h4
               class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
             >
-              List of Staff
+            List of Staff
+            <hr>
             </h4>
+
 
             <div class="flex justify-center flex-1 lg:mr-32">
               <div
                 class="relative w-full max-w-xl mr-6 focus-within:text-purple-500"
               >
-                <div class="absolute inset-y-0 flex items-center pl-2">
+              <div class="absolute inset-y-0 flex items-center pl-2">
+              <div class="absolute inset-y-0 flex items-center pl-2">
                   <svg
                     class="w-4 h-4"
                     aria-hidden="true"
@@ -991,13 +994,21 @@
                       clip-rule="evenodd"
                     ></path>
                   </svg>
-                </div>
-                <input
+              </div>
+                  <input
                   class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
                   type="text"
                   placeholder="Search by Name"
                   aria-label="Search"
                 />
+                </div>
+              </div>
+              <div class="relative max-w-xl mr-6 flex justify-center flex-1 lg:mr-32" style="margin:1em; margin-left: 18rem">
+              <a href="addstaff.php"><button
+                class="relative  mr-6 px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple flex items-center"
+               >
+                Add Staff
+              </button></a>
               </div>
             </div>
             <div class="w-full overflow-hidden rounded-lg shadow-xs">

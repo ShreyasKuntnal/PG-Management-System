@@ -573,13 +573,13 @@
             >
               Add Staff<hr>
             </h2>
-            <form onsubmit="return validate()" action="tables.php">
+            <form method="post" >
             <div
               class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
             >
               <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Name</span>
-                <input id="name"
+                <input name="name"
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="Enter Your Name" required
                 />
@@ -589,35 +589,33 @@
                 <span class="text-gray-700 dark:text-gray-400">
                   Designation
                 </span>
-                <select
+                <select name="desg" required
                   class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                  required>
-                  <option>Food</option>
-                  <option>Security</option>
-                  <option>Housekeeper</option>
-                  <option>Plumber</option>
-                  <option>Electrition</option>
-                  <option>Other</option><input id="name"
-                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                  placeholder="If Other Enter it here" 
-                />
+                  <option value="Food">Food</option>
+                  <option value="Security">Security</option>
+                  <option value="Housekeeper">Housekeeper</option>
+                  <option value="Plumber">Plumber</option>
+                  <option value="Electrition">Electrition</option>
+                  <option value="Other">Other</option>
                 </select>
               </label>
 
               <div class="mt-4 text-sm">
               <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Salary</span>
-                <input id="salary"
+                <input name="salary"
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="Salary" required
-                />
+                /><br>
               </label>
+              <div>
               <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Phone Number</span>
-                <input id="ph_no"
+                <input name="ph_no" maxlength="10"
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="Phone Number" required
-                />
+                /><br>
               </label>
                 </div>
               </div>
@@ -628,7 +626,7 @@
                 Cancel
               </button></a>
               <a href="tables.php" >
-              <input type="submit" value="Send"
+              <input type="submit" value="Send" name="save"
                  class="px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
                 >
                 </a>
@@ -636,14 +634,20 @@
           </form>
             </div>
           </div>
+          <?php 
+            require '../DatabaseConnection/dbcon.php';
+              if(isset($_POST['save']))
+              {
+                $name=$_POST['name'];
+                $desi=$_POST['desg'];
+                $salary=$_POST['salary'];
+                $ph=$_POST['ph_no'];
+                $conn->query("INSERT INTO staff(staff_id,pg_id,name,type,salary,ph_no) values(' ','1','$name','$desi','$salary','$ph')")or die($conn->error);
+              }
+          ?>
         </main>
       </div>
     </div>
-    <script>
-      function pay()
-      {
-        alert("Added Staff");
-      }
-    </script>
+    
   </body>
 </html>

@@ -31,7 +31,7 @@
           </div>
           <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
             <div class="w-full">
-              <a href="../../../index.html"><img src="../assets/images/Hôte Payant.png"></a>
+              <a href="../../../index"><img src="../assets/images/Hôte Payant.png"></a>
               <h1
                 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200"
               >
@@ -108,7 +108,7 @@
               <p class="mt-4">
                 <a
                   class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline"
-                  href="login.html"
+                  href="login.php"
                 >
                   Already have an account? Login
                 </a>

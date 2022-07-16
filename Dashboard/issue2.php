@@ -27,7 +27,7 @@
         <div class="py-4 text-gray-500 dark:text-gray-400">
           <a
             class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
-            href="index.html"
+            href="index.php"
           >
             Hote Payant
           </a>
@@ -35,7 +35,7 @@
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="dashstu2.html"
+                href="dashstu2.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -59,7 +59,7 @@
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="payment2.html"
+                href="payment2.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -85,7 +85,7 @@
               ></span>
               <a
                 class=" inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                href="issue2.html"
+                href="issue2.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -136,7 +136,7 @@
         <div class="py-4 text-gray-500 dark:text-gray-400">
           <a
             class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
-            href="index.html"
+            href="index.php"
           >
             Hote Payant
           </a>
@@ -144,7 +144,7 @@
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="dashstu2.html"
+                href="dashstu2.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -170,7 +170,7 @@
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="payment2.html"
+                href="payment2.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -195,7 +195,7 @@
               ></span>
               <a
                 class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                href="issue2.html"
+                href="issue2.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -332,7 +332,7 @@
                 >
                   <a
                   class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                  href="../pages/login.html"
+                  href="../pages/login.php"
                   >
                   <svg
                     class="w-4 h-4 mr-3"
@@ -441,7 +441,7 @@
             >
               Issues<hr>
             </h2>
-            <form onsubmit="return validate()" action="dashstu2.html">
+            <form onsubmit="return validate()" action="dashstu2.php">
             <div
               class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
             >
@@ -550,9 +550,9 @@
               <button
                 class="px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
               >
-                <a href="dashstu.html">Cancel</a>
+                <a href="dashstu.php">Cancel</a>
               </button>
-              <a href="dashstu2.html" >
+              <a href="dashstu2.php" >
               <input type="submit" value="Send"
                  class="px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
                 >

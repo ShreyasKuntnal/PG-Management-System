@@ -38,7 +38,7 @@
         <div class="py-4 text-gray-500 dark:text-gray-400">
           <a
             class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
-            href="index.html"
+            href="index.php"
           >
             Hote Payant
           </a>
@@ -50,7 +50,7 @@
               ></span>
                 <a
                   class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                  href="dashstu2.html"
+                  href="dashstu2.php"
                 >
                   <svg
                     class="w-5 h-5"
@@ -77,7 +77,7 @@
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="payment2.html"
+                href="payment2.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -99,7 +99,7 @@
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="issue2.html"
+                href="issue2.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -150,7 +150,7 @@
         <div class="py-4 text-gray-500 dark:text-gray-400">
           <a
             class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
-            href="index.html"
+            href="index.php"
           >
             Hote Payant
           </a>
@@ -162,7 +162,7 @@
               ></span>
               <a
                 class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                href="dashstu2.html"
+                href="dashstu2.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -186,7 +186,7 @@
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="payment2.html"
+                href="payment2.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -208,7 +208,7 @@
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="issue2.html"
+                href="issue2.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -315,7 +315,7 @@
                     <li class="flex">
                       <a
                         class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="issue.html"
+                        href="issue.php"
                       >
                         <span>Remainders</span>
                         <span
@@ -347,7 +347,7 @@
                 >
                   <a
                   class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                  href="../pages/login.html"
+                  href="../pages/login.php"
                   >
                   <svg
                     class="w-4 h-4 mr-3"
@@ -402,7 +402,7 @@
                     <li class="flex">
                       <a
                         class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="../pages/login.html"
+                        href="../pages/login.php"
                       >
                         <svg
                           class="w-4 h-4 mr-3"
@@ -570,7 +570,7 @@
                 class="text-lg font-semibold text-gray-700 dark:text-gray-200"
               >
               <button class="b1">
-                <span><a href="dashstu.html">Book</a></span>
+                <span><a href="dashstu.php">Book</a></span>
               </button>  
             </p>
             </div>

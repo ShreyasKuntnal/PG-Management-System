@@ -27,7 +27,7 @@
         <div class="py-4 text-gray-500 dark:text-gray-400">
           <a
             class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
-            href="../Dashboard/index.html"
+            href="dashman.php"
           >
             Hote Payant
           </a>
@@ -35,7 +35,7 @@
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="dashman.html"
+                href="dashman.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -59,7 +59,7 @@
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="forms.html"
+                href="forms.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -81,7 +81,7 @@
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="charts.html"
+                href="charts.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -104,7 +104,7 @@
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="Payments.html"
+                href="Payments.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -131,7 +131,7 @@
               ></span>
               <a
                 class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                href="tables.html"
+                href="tables.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -151,7 +151,7 @@
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="issue.html"
+                href="issue.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -200,7 +200,7 @@
         <div class="py-4 text-gray-500 dark:text-gray-400">
           <a
             class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
-            href="../Dashboard/index.html"
+            href="dashman.php"
           >
             Hote Payant
           </a>
@@ -208,7 +208,7 @@
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="dashman.html"
+                href="dashman.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -232,7 +232,7 @@
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="forms.html"
+                href="forms.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -254,7 +254,7 @@
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="charts.html"
+                href="charts.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -277,7 +277,7 @@
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="Payments.html"
+                href="Payments.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -301,7 +301,7 @@
               ></span>
               <a
                 class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                href="tables.html"
+                href="tables.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -321,7 +321,7 @@
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="issue.html"
+                href="issue.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -431,7 +431,7 @@
                     <li class="flex">
                       <a
                         class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="issue.html"
+                        href="issue.php"
                       >
                         <span>Issues</span>
                         <span
@@ -463,7 +463,7 @@
                 >
                   <a
                   class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                  href="../pages/login.html"
+                  href="../pages/login.php"
                   >
                   <svg
                     class="w-4 h-4 mr-3"

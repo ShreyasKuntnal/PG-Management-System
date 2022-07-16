@@ -57,7 +57,7 @@
               <li class="scroll-to-section"><a href="#services">Services</a></li>
               <li class="scroll-to-section"><a href="#about">About Us</a></li>
               <li class="scroll-to-section"><a href="#newsletter">Contact Us</a></li>
-              <li><div class="gradient-button"><a id="modal_trigger" href="pages/login.php"><i class="fa fa-sign-in-alt"></i> Sign In Now</a></div></li> 
+              <li><div class="gradient-button"><a id="modal_trigger" href="login.php"><i class="fa fa-sign-in-alt"></i> Sign In Now</a></div></li> 
             </ul>        
             <a class='menu-trigger'>
                 <span>Menu</span>
@@ -82,7 +82,7 @@
                     <p>A One step solution for all PG Management problems</p>
                   </div>
                   <div class="col-lg-12">
-                    <div class="gradient-button1"><a id="modal_trigger" href="pages/login.php"> Sign In</a></div><br>
+                    <div class="gradient-button1"><a id="modal_trigger" href="login.php"> Sign In</a></div><br>
                       <div class="gradient-button1"><a id="" href="pages/create-account.php"> Sign Up Now</a></div></a>
                   </div>
                 </div>
@@ -446,7 +446,7 @@
             <h4>Useful Links</h4>
             <ul>
               
-              <li><a href="pages/login.php">Login</a></li>
+              <li><a href="login.php">Login</a></li>
               <li><a href="pages/create-account.php">Sign up</a></li>
               <li><a href="pages/forgot-password.php">Forgot password</a></li>
             </ul>

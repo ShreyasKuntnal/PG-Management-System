@@ -144,7 +144,7 @@
                 }
                 else{
                   if ($pass1 == $pass2) {
-                    $conn->query("INSERT INTO user values(' ','$name','$email','".md5($pass1)."')")or die($conn->error);
+                    $conn->query("INSERT INTO user values(' ','$name','$email','".md5($pass1)."','unbooked')")or die($conn->error);
                     //$conn->query("insert into voters(id_number, password, firstname,lastname, gender,Age,status) VALUES('$id_number', '".md5($password)."','$firstname','$lastname', '$gender', '$age','Unvoted')");
                     $to  = $email; // Send email to our user
                     $subject = 'Signup | Verification'; // Give the email a subject 

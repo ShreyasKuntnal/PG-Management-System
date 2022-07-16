@@ -643,7 +643,14 @@
                 $desi=$_POST['desg'];
                 $salary=$_POST['salary'];
                 $ph=$_POST['ph_no'];
-                $conn->query("INSERT INTO staff(staff_id,pg_id,name,type,salary,ph_no) values(' ','1','$name','$desi','$salary','$ph')")or die($conn->error);
+                $mail=$_SESSION['email'];
+                $query2 =mysqli_query($conn,"SELECT mng_id FROM `manager` where `mng_email`='$mail'  ") or die ($conn->error);
+						    $row2=mysqli_fetch_array($query2);
+                $mn_id=$row2['mng_id'];
+                $conn->query("INSERT INTO staff(staff_id,mng_id,name,type,salary,ph_no) values(' ','$mn_id','$name','$desi','$salary','$ph')")or die($conn->error);
+                ?>
+                <script>window.location='tables.php';</script>
+                <?php
               }
           ?>
         </main>

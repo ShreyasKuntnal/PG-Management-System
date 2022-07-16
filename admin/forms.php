@@ -744,12 +744,18 @@
                   $adv=$_POST['adv'];
                   $dur=$_POST['dur'];
                   $amount=$_POST['amount'];
+                  $mail=$_SESSION['email'];
                   $conn->query("INSERT INTO pg values(' ','$name','$radio','$address','$chk','$type','$adv','$dur','$amount')")or die($conn->error);
                   $query1 =mysqli_query($conn,"SELECT pg_id FROM `pg` where `name`='$name' ") or die ($conn->error);
 						      $row1=mysqli_fetch_array($query1);
-                  $query2 =mysqli_query($conn,"SELECT mng_id FROM `manager` where `mng_email`= $_SESSION['mail'] ") or die ($conn->error);
+                  $query2 =mysqli_query($conn,"SELECT mng_id FROM `manager` where `mng_email`='$mail'  ") or die ($conn->error);
 						      $row2=mysqli_fetch_array($query2);
-                  $conn->query("INSERT INTO link values(' ','$row2['mng_id']','$row1['pg_id']')")or die($conn->error);
+                  $pg_id=$row1['pg_id'];
+                  $mn_id=$row2['mng_id'];
+                  $conn->query("INSERT INTO link values(' ','$mn_id','$pg_id')")or die($conn->error);
+                  ?>
+                  <script>alert("PG Added Succesfull and Redirecting to Dashboard");window.location='dashman.php';</script>
+                  <?php
                 }
             ?>
             </div>
@@ -757,44 +763,6 @@
         </main>
       </div>
     </div>
-    <script>
-    //  function validate(){
-    //  var amt1=document.getElementById("amount1");
-    //  var amt2=document.getElementById("amount2");
-    //  var name=document.getElementById("namepg");
-    //  var ptr=/\d+/;
-    //  var nameptr=/^[A-Z a-z]/;
-    //  if(!name.value.match(nameptr))
-    //  {
-    //   alert("PG Name should start with Alphabet");
-    //   name.value="";
-    //   return false;
-    //  }
-    //  if(!amt1.value.match(ptr))
-    //  {
-    //   document.getElementById("amt2").style.visibility="hidden";
-    //   document.getElementById("amt1").style.visibility="visible";
-    //   amt1.value="";
-    //   return false;
-    //  }
-    //  else if(!amt2.value.match(ptr))
-    //  {
-    //   document.getElementById("amt1").style.visibility="hidden";
-    //   document.getElementById("amt2").style.visibility="visible";
-    //   amt2.value="";
-    //   return false;
-    //  }
-    //  else{
-    //   document.getElementById("amt1").style.visibility="hidden";
-    //   document.getElementById("amt2").style.visibility="hidden";
-    //    alert("Created PG");
-    //    return true;
-    //  }
-    // }
-    // function pay()
-    //  {
-    //    alert("PG Added Succesfully");
-    //        }
-    // </script>
+    
   </body>
           </html>

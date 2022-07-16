@@ -538,9 +538,7 @@
                         <div class="flex items-center text-sm">
                           <div>
                             <p class="font-semibold"><?php echo $row['user_name'];?></p>
-                            <p class="text-xs text-gray-600 dark:text-gray-400">
-                              
-                            </p>
+                            
                           </div>
                         </div>
                       </td>
@@ -615,25 +613,34 @@
                   <tbody
                     class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
                   >
+                  <?php 
+                    require '../DatabaseConnection/dbcon.php';
+                    $query=mysqli_query($conn,"SELECT * FROM user");
+                    $row=mysqli_fetch_array($query);
+                    $user_id=$row['user_id'];
+                    $mail=$_SESSION['email'];
+                    $query2 =mysqli_query($conn,"SELECT mng_id FROM `manager` where `mng_email`='$mail'  ") or die ($conn->error);
+						      $row2=mysqli_fetch_array($query2);
+                  $mn_id=$row2['mng_id'];
+                    $query1=mysqli_query($conn,"SELECT * FROM staff where `mng_id`=$mn_id ");
+							  while($row1=mysqli_fetch_array($query1)){
+                  ?>
                     <tr class="text-gray-700 dark:text-gray-400">
                       <td class="px-4 py-3">
                         <div class="flex items-center text-sm">
                           <div>
-                            <p class="font-semibold">Suresh K</p>
+                            <p class="font-semibold"><?php echo $row1['name']?></p>
                             <p class="text-xs text-gray-600 dark:text-gray-400">
-                              Chef-1
+                            <?php echo $row1['type']?>
                             </p>
                           </div>
                         </div>
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        ₹6000/-
-                      </td>
-                      <td class="px-4 py-3 text-xs">
-                        
+                        ₹<?php echo $row1['salary']?>/-
                       </td>
                       <td class="px-4 py-3 text-sm">
-                        +91-8979456325
+                        +91-<?php echo $row1['ph_no']?>
                       </td>
                       <td class="px-4 py-3">
                         <div class="flex items-center space-x-4 text-sm">
@@ -671,7 +678,7 @@
                           </button>
                         </div>
                       </td>
-                    </tr>
+                    </tr><?php }?>
                   </tbody>
                 </table>
               </div>

@@ -584,16 +584,26 @@
                     ></path>
                   </svg>
                 </div>
+                <?php 
+                  require '../DatabaseConnection/dbcon.php';
+                  $mail=$_SESSION['email'];
+                  $query2 =mysqli_query($conn,"SELECT mng_id FROM `manager` where `mng_email`='$mail'  ") or die ($conn->error);
+						      $row2=mysqli_fetch_array($query2);
+                  $mn_id=$row2['mng_id'];
+                  $query1 =mysqli_query($conn,"SELECT * FROM `staff` where `mng_id`='$mn_id' ")->num_rows or die ($conn->error);
+                  //$query4 =mysqli_query($conn,"SELECT * FROM `issues` where `mng_id`='$mn_id' ")->num_rows or die ($conn->error);
+                  //$query3 =mysqli_query($conn,"SELECT * FROM `user_details` where `mng_id`='$mn_id' ")->num_rows or die ($conn->error);
+                ?>
                 <div>
                   <p
                     class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
                   >
-                    Total No. of Staff
+                    Total Number of Staff
                   </p>
                   <p
                     class="text-lg font-semibold text-gray-700 dark:text-gray-200"
                   >
-                    20
+                   <?php echo $query1; ?>
                   </p>
                 </div>
               </div>
@@ -601,6 +611,7 @@
               <div
                 class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
               >
+              
                 <div
                   class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500"
                 >
@@ -638,16 +649,20 @@
                     ></path>
                   </svg>
                 </div>
+                <?php  
+                $query3 =mysqli_query($conn,"SELECT * FROM `user_details` where `mng_id`='$mn_id' ")->num_rows ;
+              ?>
                 <div>
+                
                   <p
                     class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
                   >
-                    New Bookings
+                    Number Of Students
                   </p>
                   <p
                     class="text-lg font-semibold text-gray-700 dark:text-gray-200"
                   >
-                    28
+                    <?php echo $query3; ?>
                   </p>
                 </div>
               </div>
@@ -675,7 +690,9 @@
                   <p
                     class="text-lg font-semibold text-gray-700 dark:text-gray-200"
                   >
-                    13
+                  <?php 
+                echo  $conn->query("SELECT * FROM `issues` where `mng_id`='$mn_id' ")->num_rows ;
+                   ?>
                   </p>
                 </div>
                 

@@ -144,8 +144,26 @@
                 }
                 else{
                   if ($pass1 == $pass2) {
-                    $conn->query("INSERT INTO user values(' '','$name','$email','".md5($pass1)."')")or die($conn->error);
+                    $conn->query("INSERT INTO user values(' ','$name','$email','".md5($pass1)."')")or die($conn->error);
                     //$conn->query("insert into voters(id_number, password, firstname,lastname, gender,Age,status) VALUES('$id_number', '".md5($password)."','$firstname','$lastname', '$gender', '$age','Unvoted')");
+                    $to  = $email; // Send email to our user
+                    $subject = 'Signup | Verification'; // Give the email a subject 
+                    $message = '
+                      
+                    Thanks for signing up!
+                    Your account has been created, you can login with the following credentials after you have activated your account by pressing the url below.
+                      
+                    ------------------------
+                    Username: '.$name.'
+                    Password: '.$pass1.'
+                    ------------------------
+                      
+
+                      
+                    '; // Our message above including the link
+                                          
+                    $headers = 'From: maniadishu7342@gmail.com'; // Set from headers
+                    mail($to, $subject, $message, $headers); // Send our email
                   ?>
                           <script>
                           alert( 'Successfully Registered');

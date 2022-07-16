@@ -94,7 +94,7 @@
         $result1=$conn->query("SELECT * from manager WHERE mng_email='$email'") or die(mysqli_errno());
         $row1 = $result1->fetch_array();
         $nummerOfrowsOfmng=$result1->num_rows;
-        $result2=$conn->query("SELECT * from manager WHERE mng_email='$email'") or die(mysqli_errno());
+        $result2=$conn->query("SELECT * from user WHERE user_email='$email'") or die(mysqli_errno());
         $row2 = $result2->fetch_array();
         $nummerOfrowsOfuser=$result2->num_rows;
 
@@ -103,6 +103,7 @@
           if( $row1['mng_pass'] == md5($pass)){
             session_start();
              $_SESSION['email']=$email;
+             
               ?> <script>alert("Loggined Succesfully");window.location='../admin/dashman.php'</script><?php
           }
           else{ ?>

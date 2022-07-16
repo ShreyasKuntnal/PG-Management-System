@@ -14,6 +14,7 @@
       defer
     ></script>
     <script src="../assets/js/init-alpine.js"></script>
+    <?php include('session.php'); ?>
   </head>
   <body>
     <div
@@ -467,7 +468,7 @@
                 >
                   <a
                   class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                  href="../pages/login.php"
+                  href="logout.php"
                   >
                   <svg
                     class="w-4 h-4 mr-3"
@@ -486,86 +487,6 @@
                   <span>Log out</span>
                 </a>
                 </button>
-                <!-- <template x-if="isProfileMenuOpen">
-                  <ul
-                    x-transition:leave="transition ease-in duration-150"
-                    x-transition:leave-start="opacity-100"
-                    x-transition:leave-end="opacity-0"
-                    @click.away="closeProfileMenu"
-                    @keydown.escape="closeProfileMenu"
-                    class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700"
-                    aria-label="submenu"
-                  >
-                    <li class="flex">
-                      <a
-                        class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="#"
-                      >
-                        <svg
-                          class="w-4 h-4 mr-3"
-                          aria-hidden="true"
-                          fill="none"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                          ></path>
-                        </svg>
-                        <span>Profile</span>
-                      </a>
-                    </li>
-                    <li class="flex">
-                      <a
-                        class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="#"
-                      >
-                        <svg
-                          class="w-4 h-4 mr-3"
-                          aria-hidden="true"
-                          fill="none"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                          ></path>
-                          <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
-                        <span>Settings</span>
-                      </a>
-                    </li>
-                    <li class="flex">
-                      <a
-                        class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="#"
-                      >
-                        <svg
-                          class="w-4 h-4 mr-3"
-                          aria-hidden="true"
-                          fill="none"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
-                          ></path>
-                        </svg>
-                        <span>Log out</span>
-                      </a>
-                    </li>
-                  </ul>
-                </template>
-              </li> -->
             </ul>
           </div>
         </header>
@@ -582,13 +503,14 @@
             >
               Create PG<br><hr>
             </h4>
-            <form onsubmit="return validate()" action="dashman.php">
+            
+          <form method="POST" enctype = "multipart/form-data">
             <div
               class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
             >
               <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">PG Name</span>
-                <input id="namepg"
+                <input name="namepg"
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="Your Name" required
                 />
@@ -603,10 +525,8 @@
                     class="inline-flex items-center text-gray-600 dark:text-gray-400"
                   >
                     <input
-                      type="radio"
+                      type="radio" name="radio" value="Male"
                       class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                      name="accountType"
-                      value="personal" required
                     />
                     <span class="ml-2">Male</span>
                   </label>
@@ -614,10 +534,8 @@
                     class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400"
                   >
                     <input
-                      type="radio"
+                      type="radio" name="radio" value="Female"
                       class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                      name="accountType"
-                      value="busines" required
                     />
                     <span class="ml-2">Female</span>
                   </label>
@@ -626,7 +544,7 @@
 
               <label class="block mt-4 text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Address</span>
-                <textarea
+                <textarea name="address"
                   class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                   rows="3"
                   placeholder="Enter Your Address" required
@@ -658,7 +576,7 @@
                     class="inline-flex items-center text-gray-600 dark:text-gray-400"
                   >
                     <input
-                      type="checkbox"
+                      type="checkbox" name="ament[]" value="Food"
                       class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                       name="accountType"
                       value="personal" required
@@ -669,7 +587,7 @@
                     class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400"
                   >
                     <input
-                      type="checkbox"
+                      type="checkbox" name="ament[]" value="Wifi"
                       class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                       name="accountType"
                       value="busines"
@@ -680,7 +598,7 @@
                     class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400"
                   >
                     <input
-                      type="checkbox"
+                      type="checkbox" name="ament[]" value="T.V"
                       class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                       name="accountType"
                       value="busines"
@@ -691,7 +609,7 @@
                     class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400"
                   >
                     <input
-                      type="checkbox"
+                      type="checkbox" name="ament[]" value="Washing Machine"
                       class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                       name="accountType"
                       value="busines"
@@ -702,7 +620,7 @@
                     class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400"
                   >
                     <input
-                      type="checkbox"
+                      type="checkbox" name="ament[]" value="AC"
                       class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                       name="accountType"
                       value="busines"
@@ -713,7 +631,7 @@
                     class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400"
                   >
                     <input
-                      type="checkbox"
+                      type="checkbox" name="ament[]" value="Gym"
                       class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                       name="accountType"
                       value="busines"
@@ -724,7 +642,7 @@
                     class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400"
                   >
                     <input
-                      type="checkbox"
+                      type="checkbox" name="ament[]" value="Parking Place"
                       class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                       name="accountType"
                       value="busines"
@@ -738,19 +656,19 @@
                 <span class="text-gray-700 dark:text-gray-400">
                   Sharing Type
                 </span>
-                <select
+                <select name="type" name="type"
                   class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                 >
-                  <option>Single</option>
-                  <option>Double</option>
-                  <option>Triple</option>
-                  <option>Four</option>
+                  <option value="single">Single</option>
+                  <option value="double">Double</option>
+                  <option value="triple">Triple</option>
+                  <option value="four">Four</option>
                 </select>
               </label>
 
               <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Advance Amount</span>
-                <input id="amount1"
+                <input name="adv"
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="Enter Amount" required
                 />
@@ -761,19 +679,19 @@
                 <span class="text-gray-700 dark:text-gray-400">
                   Agreement Duration
                 </span>
-                <select
+                <select name="dur"
                   class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                required>
-                  <option>Monthly</option>
-                  <option>Quaterly</option>
-                  <option>Halfyearly</option>
-                  <option>Yearly</option>
+                  <option value="Monthly">Monthly</option>
+                  <option value="Quaterly">Quaterly</option>
+                  <option value="Halfyearly">Halfyearly</option>
+                  <option value="Yearly">Yearly</option>
                 </select>
               </label>
 
               <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Amount Per Person</span>
-                <input id="amount2"
+                <input name="amount"
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="Enter Amount" required 
                 />
@@ -802,56 +720,81 @@
               </button></a>
               
               <button>
-                  <a href="#" ></a>
-                  <input
+                  
+                  <input name="save"
                   class="px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
                   type="submit" >
                 </button>
             </div>
             </form>
+            <?php 
+                require '../DatabaseConnection/dbcon.php';
+                if(isset($_POST['save']))
+                {
+                  $name=$_POST['namepg'];
+                  $radio=$_POST['radio'];
+                  $address=$_POST['address'];
+                  $checkbox1=$_POST['ament'];  
+                  $chk=""; 
+                  foreach($checkbox1 as $chk1)  
+                  {  
+                      $chk .= $chk1.",";  
+                  }   
+                  $type=$_POST['type'];
+                  $adv=$_POST['adv'];
+                  $dur=$_POST['dur'];
+                  $amount=$_POST['amount'];
+                  $conn->query("INSERT INTO pg values(' ','$name','$radio','$address','$chk','$type','$adv','$dur','$amount')")or die($conn->error);
+                  $query1 =mysqli_query($conn,"SELECT pg_id FROM `pg` where `name`='$name' ") or die ($conn->error);
+						      $row1=mysqli_fetch_array($query1);
+                  $query2 =mysqli_query($conn,"SELECT mng_id FROM `manager` where `mng_email`= $_SESSION['mail'] ") or die ($conn->error);
+						      $row2=mysqli_fetch_array($query2);
+                  $conn->query("INSERT INTO link values(' ','$row2['mng_id']','$row1['pg_id']')")or die($conn->error);
+                }
+            ?>
             </div>
           </div>
         </main>
       </div>
     </div>
     <script>
-     function validate(){
-     var amt1=document.getElementById("amount1");
-     var amt2=document.getElementById("amount2");
-     var name=document.getElementById("namepg");
-     var ptr=/\d+/;
-     var nameptr=/^[A-Z a-z]/;
-     if(!name.value.match(nameptr))
-     {
-      alert("PG Name should start with Alphabet");
-      name.value="";
-      return false;
-     }
-     if(!amt1.value.match(ptr))
-     {
-      document.getElementById("amt2").style.visibility="hidden";
-      document.getElementById("amt1").style.visibility="visible";
-      amt1.value="";
-      return false;
-     }
-     else if(!amt2.value.match(ptr))
-     {
-      document.getElementById("amt1").style.visibility="hidden";
-      document.getElementById("amt2").style.visibility="visible";
-      amt2.value="";
-      return false;
-     }
-     else{
-      document.getElementById("amt1").style.visibility="hidden";
-      document.getElementById("amt2").style.visibility="hidden";
-       alert("Created PG");
-       return true;
-     }
-    }
-    function pay()
-     {
-       alert("PG Added Succesfully");
-           }
-    </script>
+    //  function validate(){
+    //  var amt1=document.getElementById("amount1");
+    //  var amt2=document.getElementById("amount2");
+    //  var name=document.getElementById("namepg");
+    //  var ptr=/\d+/;
+    //  var nameptr=/^[A-Z a-z]/;
+    //  if(!name.value.match(nameptr))
+    //  {
+    //   alert("PG Name should start with Alphabet");
+    //   name.value="";
+    //   return false;
+    //  }
+    //  if(!amt1.value.match(ptr))
+    //  {
+    //   document.getElementById("amt2").style.visibility="hidden";
+    //   document.getElementById("amt1").style.visibility="visible";
+    //   amt1.value="";
+    //   return false;
+    //  }
+    //  else if(!amt2.value.match(ptr))
+    //  {
+    //   document.getElementById("amt1").style.visibility="hidden";
+    //   document.getElementById("amt2").style.visibility="visible";
+    //   amt2.value="";
+    //   return false;
+    //  }
+    //  else{
+    //   document.getElementById("amt1").style.visibility="hidden";
+    //   document.getElementById("amt2").style.visibility="hidden";
+    //    alert("Created PG");
+    //    return true;
+    //  }
+    // }
+    // function pay()
+    //  {
+    //    alert("PG Added Succesfully");
+    //        }
+    // </script>
   </body>
           </html>

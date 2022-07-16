@@ -332,7 +332,7 @@
                 >
                   <a
                   class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                  href="../pages/login.php"
+                  href="logout.php"
                   >
                   <svg
                     class="w-4 h-4 mr-3"
@@ -441,13 +441,13 @@
             >
               Issues<hr>
             </h2>
-            <form onsubmit="return validate()" action="dashstu2.php">
+            <form method="post" >
             <div
               class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
             >
               <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400"> Name</span>
-                <input id="name"
+                <input name="name"
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="Enter Your Name" required
                 />
@@ -462,10 +462,10 @@
                     class="inline-flex items-center text-gray-600 dark:text-gray-400"
                   >
                     <input
-                      type="checkbox"
+                      type="checkbox" name="with[]"
                       class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                       name="accountType"
-                      value="personal" required
+                      value="Food" required
                     />
                     <span class="ml-2">Food</span>
                   </label>
@@ -473,21 +473,21 @@
                     class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400"
                   >
                     <input
-                      type="checkbox"
+                      type="checkbox" name="with[]"
                       class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                       name="accountType"
-                      value="busines"
+                      value="Wifi"
                     />
                     <span class="ml-2">Wifi</span>
                   </label>
                   <label
                     class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400"
                   >
-                    <input
-                      type="checkbox"
+                    <input 
+                      type="checkbox" name="with[]"
                       class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                       name="accountType"
-                      value="busines"
+                      value="T.V"
                     />
                     <span class="ml-2">T.V</span>
                   </label>
@@ -495,10 +495,10 @@
                     class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400"
                   >
                     <input
-                      type="checkbox"
+                      type="checkbox" name="with[]"
                       class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                       name="accountType"
-                      value="busines"
+                      value="Washing Machine"
                     />
                     <span class="ml-2">Washing Machine</span>
                   </label>
@@ -506,10 +506,10 @@
                     class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400"
                   >
                     <input
-                      type="checkbox"
+                      type="checkbox" name="with[]"
                       class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                       name="accountType"
-                      value="busines"
+                      value="AC"
                     />
                     <span class="ml-2">AC</span>
                   </label>
@@ -517,10 +517,10 @@
                     class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400"
                   >
                     <input
-                      type="checkbox"
+                      type="checkbox" name="with[]"
                       class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                       name="accountType"
-                      value="busines"
+                      value="Gym"
                     />
                     <span class="ml-2">Gym</span>
                   </label>
@@ -528,10 +528,10 @@
                     class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400"
                   >
                     <input
-                      type="checkbox"
+                      type="checkbox" name="with[]"
                       class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                       name="accountType"
-                      value="busines"
+                      value="Parking Place"
                     />
                     <span class="ml-2">Parking Place</span>
                   </label>
@@ -539,7 +539,7 @@
               </div>
               <label class="block mt-4 text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Issue</span>
-                <textarea
+                <textarea name="desc"
                   class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                   rows="3"
                   placeholder="State Your Problem in detail" required
@@ -547,13 +547,12 @@
               </label>
             <br>
             <div>
-              <button
+            
+              <input type="reset" value="Reset"
                 class="px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
               >
-                <a href="dashstu.php">Cancel</a>
-              </button>
               <a href="dashstu2.php" >
-              <input type="submit" value="Send"
+              <input type="submit" name="send"
                  class="px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
                 >
                 </a>
@@ -564,11 +563,21 @@
         </main>
       </div>
     </div>
-    <script>
-      function pay()
-      {
-        alert("Sent Issue to the Manager");
+    <?php 
+    require '../DatabaseConnection/dbcon.php';
+      if(isset($_POST['send'])){
+        $name=$_POST['name'];
+        $checkbox1=$_POST['with'];  
+        $chk="";  
+        foreach($checkbox1 as $chk1)  
+          {  
+              $chk .= $chk1.",";  
+          }  
+        $desc=$_POST['desc'];
+        $conn->query("INSERT into issues(name,type,description,status) values('$name','$chk','$desc','Pending')") or die($conn->error);
+        ?><script>alert("Your Issue is Registerd and We are redirecting you to Dashboard");window.location='dashstu2.php';</script><?php
       }
-    </script>
+    ?>
+    
   </body>
 </html>

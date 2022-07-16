@@ -24,6 +24,7 @@
     ></script>
     <script src="./assets/js/charts-lines.js" defer></script>
     <script src="./assets/js/charts-pie.js" defer></script>
+    <?php include('session.php'); ?>
   </head>
   <body>
     <div
@@ -39,7 +40,7 @@
             class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
             href="dashman.php"
           >
-            Hote Payant
+            Hote Payant 
           </a>
           <ul class="mt-6">
             <li class="relative px-6 py-3">

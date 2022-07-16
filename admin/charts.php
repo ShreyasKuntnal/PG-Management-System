@@ -25,6 +25,7 @@
     <script src="../assets/js/charts-lines.js" defer></script>
     <script src="../assets/js/charts-pie.js" defer></script>
     <script src="../assets/js/charts-bars.js" defer></script>
+    <?php include('session.php'); ?>
   </head>
   <body>
     <div

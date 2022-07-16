@@ -28,6 +28,7 @@
       defer
     ></script>
     <script src="../assets/js/init-alpine.js"></script>
+    <?php include('session.php'); ?>
   </head>
   <body>
     <div

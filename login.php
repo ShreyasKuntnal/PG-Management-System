@@ -9,12 +9,13 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/css/tailwind.output.css" />
+    <link rel="stylesheet" href="assets/css/tailwind.output.css" />
     <script
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
       defer
     ></script>
-    <script src="../assets/js/init-alpine.js"></script>
+    <script src="assets/js/init-alpine.js"></script>
+    <?php session_start();?>
   </head>
   <body>
     <div class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
@@ -26,13 +27,13 @@
             <img
               aria-hidden="true"
               class="hidden object-cover w-full h-full dark:block"
-              src="../assets/images/login-office-dark.jpeg"
+              src="assets/images/login-office-dark.jpeg"
               alt="Office"
             />
           </div>
           <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
             <div class="w-full">
-              <a href="../index.php"><img src="../assets/images/Hôte Payant.png"></a>
+              <a href="index.php"><img src="assets/images/Hôte Payant.png"></a>
               <h1
                 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200"
               >
@@ -85,12 +86,13 @@
       </div>
     </div>
     <?php 
-      require '../DatabaseConnection/dbcon.php';
+      require 'DatabaseConnection/dbcon.php';
       if(isset($_POST['login']))
       {
         $email=$_POST['mail'];
         $pass=$_POST['pass'];
-
+        
+        $_SESSION['email']=$email;
         $result1=$conn->query("SELECT * from manager WHERE mng_email='$email'") or die(mysqli_errno());
         $row1 = $result1->fetch_array();
         $nummerOfrowsOfmng=$result1->num_rows;
@@ -101,10 +103,8 @@
         if($nummerOfrowsOfmng>0)
         {
           if( $row1['mng_pass'] == md5($pass)){
-            session_start();
-             $_SESSION['email']=$email;
-             
-              ?> <script>alert("Loggined Succesfully");window.location='../admin/dashman.php'</script><?php
+            
+            ?><script>alert("Loggined Succesfully");window.location='admin/dashman.php'</script><?php
           }
           else{ ?>
           <script>
@@ -116,9 +116,7 @@
         }
         else if($nummerOfrowsOfuser>0){
           if( $row2['user_pass'] == md5($pass)){
-            session_start();
-             $_SESSION['email']=$email;
-            ?> <script>alert("Loggined Succesfully");window.location='../Dashboard/dashstu2.php'</script><?php
+            ?> <script>alert("Loggined Succesfully");window.location='Dashboard/dashstu2.php'</script><?php
         }
         else{ ?>
         <script>
@@ -132,7 +130,7 @@
           ?>
           <script type="text/javascript">
           alert('Your account is not registered ');
-          window.location='create-account.php';
+          window.location='pages/create-account.php';
           </script>
           <?php
         }

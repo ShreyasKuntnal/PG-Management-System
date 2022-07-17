@@ -9,7 +9,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../assets/css/tailwind.output.css" />
-    <style type="text/css">
+    <link rel="stylesheet" href="../assets/css/3c-reservation.css" />
+    <!-- <style type="text/css">
       #seatsDiagram td,
     #displaySeats td{
         padding: 0.5rem;
@@ -47,17 +48,17 @@
         background-color: #db2619;
     }
 
-    #seatsDiagram td:not(.space,.notAvailable):hover{
+    /*#seatsDiagram td:not(.space,.notAvailable):hover{
         cursor: pointer;
-        border-color:greenyellow;
-    }
+        border-color:#037192;
+    }*/
 
     #seatsDiagram .space,
     #displaySeats .space{
         background-color: #1e2c4b;
         border: none;
-    }
-    </style>
+    } -->
+    <!-- </style> -->
     <script
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
       defer
@@ -721,111 +722,75 @@
               Bookings 
           </h2> 
           <hr> 
-          <div class="movie-container">
+          <!-- <div class="movie-container">
             <label style="color: aliceblue;   font-size: 1em;">Select type of sharing:</label>
             <select id="pg" style="color: rgb(255, 255, 255); background-color: #1a1c23;">
               <option value="10">Single</option>
               <option value="12">Double</option>
               <option value="8">Triple</option>
             </select>
-          </div>
+          </div> -->
 
           <ul class="showcase">
             <li>
               <div id="seat" class="seat1"></div>
               <small class="status" style="font-size: 1em;">N/A</small>
             </li>
-            <li>
+            <!-- <li>
               <div id="seat" class="seat2"></div>
               <small class="status" style="font-size: 1em;">Selected</small>
-            </li>
+            </li> -->
             <li>
               <div id="seat" class="seat3"></div>
               <small class="status" style="font-size: 1em;">Occupied</small>
             </li>
           </ul>
-
-          <!-- <div class="container1">
-            
-
-            <div class="row">
-              <div id="seat" class="seat"></div>
-              <div id="seat" class="seat"></div>
-              <div id="seat" class="seat"></div>
-              <div id="seat" class="seat"></div>
-              
-              <div id="seat" class="seat"></div>
-              <div id="seat" class="seat"></div>
-            </div>
-            <div class="row">
-              <div id="seat" class="seat"></div>
-              <div id="seat" class="seat"></div>
-              <div id="seat" class="seat"></div>
-              <div id="seat" class="seat occupied"></div>
-            
-              <div id="seat" class="seat"></div>
-              <div id="seat" class="seat"></div>
-            </div>
-            <div class="row">
-              <div id="seat" class="seat"></div>
-              <div id="seat" class="seat"></div>
-              <div id="seat" class="seat"></div>
-              <div id="seat" class="seat"></div>
-              
-              <div id="seat" class="seat occupied"></div>
-              <div id="seat" class="seat occupied"></div>
-            </div>
-            <div class="row">
-              <div id="seat" class="seat"></div>
-              <div id="seat" class="seat"></div>
-              <div id="seat" class="seat"></div>
-              <div id="seat" class="seat"></div>
-              
-              <div id="seat" class="seat"></div>
-              <div id="seat" class="seat"></div>
-            </div>
-            <div class="row">
-              <div id="seat" class="seat"></div>
-              <div id="seat" class="seat"></div>
-              <div id="seat" class="seat"></div>
-              <div id="seat" class="seat occupied"></div>
-              
-              <div id="seat" class="seat"></div>
-              <div id="seat" class="seat"></div>
-            </div>
-            <div class="row">
-              <div id="seat" class="seat"></div>
-              <div id="seat" class="seat"></div>
-              <div id="seat" class="seat"></div>
-              <div id="seat" class="seat occupied"></div>
-              
-              <div id="seat" class="seat occupied"></div>
-              <div id="seat" class="seat"></div>
-            </div>
-            <p class="text" style="color: #fff; font-size: 1em;margin:0px 0px 15px 0px">
-              You have selected <span id="count">0</span> beds for a price of ₹<span
-                id="total"
-                >0</span
-              >/-
-            </p>
-            <form onsubmit="pay()">
-            <label class="block text-sm" style="margin: 0.4rem;">
-                <span class="text-gray-700 dark:text-gray-400">Phone Number</span>
-                <input id="ph_no"
-                  class="block mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                  placeholder="Phone Number" required
-                />
-              </label>
-            <a href="dashstu2.php">
-              <button class="btn-home px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
-                Pay
-              </button>
-            </a>
-          </form>
-      
-      </div> -->
+      </div>
       <div class="container1">
-      <table id="seatsDiagram" data-seats="<?php echo $booked_seats; ?>">
+      <?php
+    // (A) FIXED FOR THIS DEMO
+    $sessid = 1;
+    $userid = 999;
+
+    // (B) GET SESSION SEATS
+    require "2-reserve-lib.php";
+    $seats = $_RSV->get($sessid);
+    ?>
+
+    <!-- (C) DRAW SEATS LAYOUT -->
+    <div id="layout"><?php
+      foreach ($seats as $s) {
+        $taken = is_numeric($s["user_id"]);
+        printf("<div class='seat%s'%s>%s</div>",
+          $taken ? " taken" : "",
+          $taken ? "" : " onclick='reserve.toggle(this)'",
+          $s["seat_id"]
+        );
+      }
+    ?></div>
+
+    
+    <!-- (E) SAVE SELECTION -->
+    <form id="ninja" method="post" action="4-save.php">
+      <input type="hidden" name="sessid" value="<?=$sessid?>"/>
+      <input type="hidden" name="userid" value="<?=$userid?>"/>
+    </form>
+    
+</div>
+    <!-- (D) LEGEND -->
+    <!-- <div>Green seats - Open</div>
+    <div>Grey seats - Taken</div>
+    <div>Blue seats - Your chosen seats</div> -->
+
+    <!-- (E) SAVE SELECTION -->
+    <form id="ninja" method="post" action="4-save.php">
+      <input type="hidden" name="sessid" value="<?=$sessid?>"/>
+      <input type="hidden" name="userid" value="<?=$userid?>"/>
+    </form>
+    <!-- <button onclick="reserve.save()">Reserve Seats</button> -->
+          
+      <!-- <div class="container1">
+      <table id="seatsDiagram" data-seats="<//?php echo $booked_seats; ?>">
                                 <tr>
                                     <td id="seat-101-A" data-name="101-A">101-A</td>
                                     <td class="space">&nbsp;</td>
@@ -912,60 +877,29 @@
                                 </tr>
                             </table>
                             <div class="row g-3 align-items-center mb-3">
-                                <div class="col-auto">
+                                <-- <div class="col-auto">
                                     <label for="seatInput" class="col-form-label">Seat Number</label>
                                 </div>
                                 <div class="col-auto">
                                     <input type="text" id="seatInput" class="form-control" name="seatInput" readonly>
-                                </div>
-                                <div class="col-auto">
+                                </div> -->
+                                <!-- <div class="col-auto">
                                     <span id="seatInfo" class="form-text">
                                     Select from the above figure, Maximum 1 seat.
                                     </span>
-                                </div>
-                            </div>
-                            <div class="mb-3">
+                                </div> ->
+                            </div><br>
+                            <!- <div class="mb-3">
                                 <label for="bookAmount" class="form-label">Total Amount</label>
                                 <input type="text" class="form-control" id="bookAmount" name="bookAmount" readonly>
-                            </div>
-                            <button type="submit" class="btn btn-success" name="submit">Submit</button>
-                        </form>
-                    </div>
+                            </div> ->
+                            <!- <button type="submit" class="btn btn-success" name="submit">Submit</button> ->
+                        </form> -->
+                   
+                  
     
-
     
     
-    <script>
-     function pay()
-     {
-       alert("Payment Succesfull\nBooked a Slot Succesfully");
-     }
-      var count=0;
-      var seats=document.getElementsByClassName("seat");
-      
-      for(var i=0;i<seats.length;i++){
-        var item=seats[i];
-        
-        item.addEventListener("click",(event)=>{
-          var price= document.getElementById("pg").value;
-
-          if (!event.target.classList.contains('occupied') && !event.target.classList.contains('selected') ){
-          count++;
-          
-          var total=count*6000;
-          event.target.classList.add("selected");
-          }
-          else if (event.target.classList.contains('selected') && count>0){
-          count--;
-          var total=count*6000;
-          event.target.classList.add("reselected");
-          }
-          document.getElementById("count").innerText=count;
-          if(total!=undefined)
-          document.getElementById("total").innerText=total;
-        })
-      }
-    </script>
     
     </div>
   </body>

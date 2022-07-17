@@ -1,0 +1,18 @@
+* {
+  font-family: arial, sans-serif;
+  box-sizing: border-box;
+}
+#layout {
+  max-width: 400px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  margin-bottom: 20px;
+}
+#layout .seat {
+  text-align: center;
+  padding: 10px;
+  background: #afced6;
+}
+#layout .taken { background: #1b257e; }
+#layout .selected { background: #037192; }

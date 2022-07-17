@@ -8,6 +8,9 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <script src="../assets/js/3b-reservation.js"></script>
+    <link rel="stylesheet" href="../assets/css/3c-reservation.css"/>
+    
     <link rel="stylesheet" href="../assets/css/tailwind.output.css" />
     <style type="text/css">
       #seatsDiagram td,
@@ -33,7 +36,7 @@
     }
 
     #seatsDiagram  td.selected{
-        background-color: greenyellow;
+        background-color: #037192;
         -webkit-animation-name: rubberBand;
         animation-name: rubberBand;
         animation-duration: 300ms;
@@ -49,7 +52,7 @@
 
     #seatsDiagram td:not(.space,.notAvailable):hover{
         cursor: pointer;
-        border-color:greenyellow;
+        border-color:#037192;
     }
 
     #seatsDiagram .space,
@@ -613,7 +616,38 @@
               <small class="status" style="font-size: 1em;">Occupied</small>
             </li>
           </ul>
+      </div>
+      <?php
+    // (A) FIXED FOR THIS DEMO
+    $sessid = 1;
+    $userid = 999;
 
+    // (B) GET SESSION SEATS
+    require "2-reserve-lib.php";
+    $seats = $_RSV->get($sessid);
+    ?>
+
+    <!-- (C) DRAW SEATS LAYOUT -->
+    <div id="layout"><?php
+      foreach ($seats as $s) {
+        $taken = is_numeric($s["user_id"]);
+        printf("<div class='seat%s'%s>%s</div>",
+          $taken ? " taken" : "",
+          $taken ? "" : " onclick='reserve.toggle(this)'",
+          $s["seat_id"]
+        );
+      }
+    ?></div>
+
+    <!-- (D) LEGEND -->
+    
+
+    <!-- (E) SAVE SELECTION -->
+    <form id="ninja" method="post" action="4-save.php">
+      <input type="hidden" name="sessid" value="<?=$sessid?>"/>
+      <input type="hidden" name="userid" value="<?=$userid?>"/>
+    </form>
+    <button onclick="reserve.save()">Reserve Seats</button>
           <!-- <div class="container1">
             
 
@@ -693,7 +727,8 @@
           </form>
       
       </div> -->
-      <div class="mb-3">
+      
+      <!-- <div class="mb-3">
                                 <table id="seatsDiagram">
                                 <tr>
                                     <td id="seat-101-A" data-name="101-A">101-A</td>
@@ -794,19 +829,45 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="mb-3">
+                            <!- <div class="mb-3">
                                 <label for="bookAmount" class="form-label">Total Amount</label>
                                 <input type="text" class="form-control" id="bookAmount" name="bookAmount" readonly>
-                            </div>
-                            <button type="submit" class="btn btn-success" name="submit">Submit</button>
+                            </div> ->
+                            <input type="submit" class="btn btn-success" name="submit">Submit
                         </form>
-                    </div>
-    
+                    </div> -->
+                    <!-- <//?php
+                  require '../DatabaseConnection/dbcon.php';
+                  
+                  if(isset($_POST["submit"]))
+                  {
+                    $booked_seat = $_POST["seatInput"];
+                    
+                    $pg_id=$_SESSION['pg_id'];
+                    //$seats=$conn->query("SELECT seat_booked from seats where pg_id='$pg_id'");
+                    //$seats = get_from_table($conn, "seats", "pg_id", $pg_id, "seat_booked");
+
+                    $numofrow=$seats->num_rows;
+                    if($numofrow>0)
+                    {
+                        $seats .= "," . $booked_seat;
+                    }
+                    else 
+                        $seats = $booked_seat;
+
+                    $updateSeatSql = "UPDATE `seats` SET `seat_booked` = '$seats' WHERE `seats`.`pg_id` = '$';";
+                    mysqli_query($conn, $updateSeatSql);
+                }
+                
+            
+                  
+                  ?> -->
+
 
     
     
-    <script>
-     function pay()
+    <script src="../assets/js/admin_booking.js">
+      /*function pay()
      {
        alert("Payment Succesfull\nBooked a Slot Succesfully");
      }
@@ -834,7 +895,7 @@
           if(total!=undefined)
           document.getElementById("total").innerText=total;
         })
-      }
+      }*/
     </script>
     
     </div>

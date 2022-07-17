@@ -24,6 +24,7 @@
     ></script>
     <script src="./assets/js/charts-lines.js" defer></script>
     <script src="./assets/js/charts-pie.js" defer></script>
+    <?php include('session.php'); ?>
   </head>
   <body>
     <div
@@ -374,7 +375,7 @@
                             <th class="px-4 py-3">Name</th>
                             <th class="px-4 py-3">Rent per Month</th>
                             <th class="px-4 py-3">Category</th>
-                            <th class="px-4 py-3">Phone Number</th>
+                            <th class="px-4 py-3">Contact Info</th>
                             <th class="px-4 py-3">Actions</th>
                           </tr>
                         </thead>
@@ -382,6 +383,11 @@
                           class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
                         >
                         <!--1st PG-->
+                        <?php 
+                          require '../DatabaseConnection/dbcon.php';
+                          $query2 =mysqli_query($conn,"SELECT * FROM `pg`") or die ($conn->error);
+                          while($row2=mysqli_fetch_array($query2)){
+                        ?>
                           <tr class="text-gray-700 dark:text-gray-400">
                             <td class="px-4 py-3">
                               <div class="flex items-center text-sm">
@@ -389,21 +395,21 @@
                                     <img src="../assets/images/pg images/venu Pg.jpg" >
                                   <p class="font-semibold"><a href="#">Venus PG</a></p>
                                   <p class="text-xs text-gray-600 dark:text-gray-400">
-                                    Address:#16, Banashankari Arcade, above Cafe Coffee Day,<br> Kumaraswamy Layout, Bengaluru, Karnataka 560078<br><br>Rating: 4.6/5<br><br>
+                                    Address:<?php echo $row2['address']; ?><br><br>Rating: 4.6/5<br><br>
                                     Distance:700mtrs from college
                                   </p>
                                 </div>
                               </div>
                             </td>
                             <td class="px-4 py-3 text-sm">
-                              ₹10000/- <br><br>₹8000/- <br><br>₹6500/-
+                              ₹<?php echo $row2['amt_per_person']; ?>/-
                             </td>
                             <td class="px-4 py-3 text-sm">
                               
-                              Single <br><br>Double <br><br> Triple
+                            <?php echo $row2['sharing_type']; ?>
                             </td>
                             <td class="px-4 py-3 text-sm">
-                              +91-8979456325
+                              <?php echo $_SESSION['email']; ?>
                             </td>
                             <td class="px-4 py-3">
                               <div class="flex items-center space-x-4 text-sm">
@@ -411,14 +417,14 @@
                                 <button
                   class="px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
                 >
-                  <a href="booking.php" >Book</a>
+                  <a href="booking_copy.php?myVar=<?php echo $row2['pg_id']; ?>" onclick="post">Book</a>
 
                               </button>
                               </div>
                             </td>
-                          </tr>
+                          </tr> <?php }?>
                          <!--2nd PG-->
-                          <tr class="text-gray-700 dark:text-gray-400">
+                          <!-- <tr class="text-gray-700 dark:text-gray-400">
                             <td class="px-4 py-3">
                               <div class="flex items-center text-sm">
                                 <div>
@@ -492,8 +498,8 @@
                                 
                               </div>
                             </td>
-                          </tr>
-      
+                          </tr> -->
+<!--       
                           <tr class="text-gray-700 dark:text-gray-400">
                             <td class="px-4 py-3">
                               <div class="flex items-center text-sm">
@@ -523,7 +529,7 @@
                                 <button
                   class="px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
                 >
-                  <a href="booking.php" >Book</a>
+                  <a href="booking.php" >Book</a> -->
 
                 </button>
                               </div>

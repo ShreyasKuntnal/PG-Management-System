@@ -22,8 +22,8 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
       defer
     ></script>
-    <script src="./assets/js/charts-lines.js" defer></script>
-    <script src="./assets/js/charts-pie.js" defer></script>
+    <!-- <script src="./assets/js/charts-lines.js" defer></script>
+    <script src="./assets/js/charts-pie.js" defer></script> -->
     <?php include('session.php'); ?>
   </head>
   <body>
@@ -96,11 +96,10 @@
                 <span class="ml-4">Forms</span>
               </a>
             </li>
-           
             <li class="relative px-6 py-3">
               <a
-                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="charts.php"
+              class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="seats.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -113,11 +112,10 @@
                   stroke="currentColor"
                 >
                   <path
-                    d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
+                    d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
                   ></path>
-                  <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
                 </svg>
-                <span class="ml-4">Charts</span>
+                <span class="ml-4">Booking</span>
               </a>
             </li>
             <li class="relative px-6 py-3">
@@ -273,11 +271,10 @@
                 <span class="ml-4">Forms</span>
               </a>
             </li>
-
             <li class="relative px-6 py-3">
               <a
-                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="charts.php"
+              class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="seats.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -290,11 +287,10 @@
                   stroke="currentColor"
                 >
                   <path
-                    d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
+                    d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
                   ></path>
-                  <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
                 </svg>
-                <span class="ml-4">Charts</span>
+                <span class="ml-4">Booking</span>
               </a>
             </li>
             
@@ -503,63 +499,7 @@
                   <span>Log out</span>
                 </a>
                 </button>
-                <!-- <template x-if="isProfileMenuOpen">
-                  <ul
-                    x-transition:leave="transition ease-in duration-150"
-                    x-transition:leave-start="opacity-100"
-                    x-transition:leave-end="opacity-0"
-                    @click.away="closeProfileMenu"
-                    @keydown.escape="closeProfileMenu"
-                    class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700"
-                    aria-label="submenu"
-                  >
-                    <li class="flex">
-                      <a
-                        class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="#"
-                      >
-                        <svg
-                          class="w-4 h-4 mr-3"
-                          aria-hidden="true"
-                          fill="none"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                          ></path>
-                        </svg>
-                        <span>Profile</span>
-                      </a>
-                    </li>
-                    
-                    <li class="flex">
-                      <a
-                        class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="pages/login.php"
-                      >
-                        <svg
-                          class="w-4 h-4 mr-3"
-                          aria-hidden="true"
-                          fill="none"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
-                          ></path>
-                        </svg>
-                        <span>Log out</span>
-                      </a>
-                    </li>
-                  </ul>
-                </template> -->
+
               </li>
             </ul>
           </div>
@@ -571,6 +511,15 @@
             >
               Dashboard<hr>
             </h2>
+            <?php 
+                  require '../DatabaseConnection/dbcon.php';
+                  $mail=$_SESSION['email'];
+                  $query2 =mysqli_query($conn,"SELECT mng_id FROM `manager` where `mng_email`='$mail'  ") or die ($conn->error);
+						      $row2=mysqli_fetch_array($query2);
+                  $mn_id=$row2['mng_id'];
+                  $query =mysqli_query($conn,"SELECT * FROM `link` where `mng_id`='$mn_id'  ")->num_rows;
+                  if($query==1){
+                   ?>
             <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
               <!-- Card -->
               <div
@@ -585,12 +534,7 @@
                     ></path>
                   </svg>
                 </div>
-                <?php 
-                  require '../DatabaseConnection/dbcon.php';
-                  $mail=$_SESSION['email'];
-                  $query2 =mysqli_query($conn,"SELECT mng_id FROM `manager` where `mng_email`='$mail'  ") or die ($conn->error);
-						      $row2=mysqli_fetch_array($query2);
-                  $mn_id=$row2['mng_id'];
+                <?php
                   $query1 =mysqli_query($conn,"SELECT * FROM `staff` where `mng_id`='$mn_id' ")->num_rows;
                   //$query4 =mysqli_query($conn,"SELECT * FROM `issues` where `mng_id`='$mn_id' ")->num_rows or die ($conn->error);
                   //$query3 =mysqli_query($conn,"SELECT * FROM `user_details` where `mng_id`='$mn_id' ")->num_rows or die ($conn->error);
@@ -651,7 +595,7 @@
                   </svg>
                 </div>
                 <?php  
-                $query3 =mysqli_query($conn,"SELECT * FROM `user_details` where `mng_id`='$mn_id' ")->num_rows ;
+                $query3 =mysqli_query($conn,"SELECT us.* FROM user_details us,link l where l.mng_id='$mn_id' and l.pg_id=us.pg_id ")->num_rows ;
               ?>
                 <div>
                 
@@ -698,10 +642,12 @@
                 </div>
                 
               </div>
-            </div>
+            </div><?php }
+            else{
+            ?>
             <div
             class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
-          >
+            >
             <div
               class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500"
             >
@@ -726,7 +672,7 @@
               </button>  </a>
             </p>
             </div>
-          </div>
+          </div><?php }?>
                   </div>
                 </div>
               </div>

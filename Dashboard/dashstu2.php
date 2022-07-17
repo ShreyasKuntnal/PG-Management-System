@@ -24,7 +24,7 @@
     ></script>
     <script src="./assets/js/charts-lines.js" defer></script>
     <script src="./assets/js/charts-pie.js" defer></script>
-    <?php ?>
+    <?php include('session.php'); ?>
   </head>
   <body>
     <div
@@ -299,19 +299,7 @@
                     @keydown.escape="closeNotificationsMenu"
                     class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700"
                   >
-                    <!-- <li class="flex">
-                      <a
-                        class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="#"
-                      >
-                        <span>Messages</span>
-                        <span
-                          class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-600 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-600"
-                        >
-                          13
-                        </span>
-                      </a>
-                    </li> -->
+                    
                     <li class="flex">
                       <a
                         class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
@@ -325,14 +313,7 @@
                         </span>
                       </a>
                     </li>
-                    <!-- <li class="flex">
-                      <a
-                        class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="#"
-                      >
-                        <span>Alerts</span>
-                      </a>
-                    </li> -->
+                    
                   </ul>
                 </template>
               </li>
@@ -347,7 +328,7 @@
                 >
                   <a
                   class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                  href="../pages/login.php"
+                  href="logout.php"
                   >
                   <svg
                     class="w-4 h-4 mr-3"
@@ -366,64 +347,7 @@
                   <span>Log out</span>
                 </a>
                 </button>
-                <!-- <template x-if="isProfileMenuOpen">
-                  <ul
-                    x-transition:leave="transition ease-in duration-150"
-                    x-transition:leave-start="opacity-100"
-                    x-transition:leave-end="opacity-0"
-                    @click.away="closeProfileMenu"
-                    @keydown.escape="closeProfileMenu"
-                    class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700"
-                    aria-label="submenu"
-                  >
-                    <li class="flex">
-                      <a
-                        class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="#"
-                      >
-                        <svg
-                          class="w-4 h-4 mr-3"
-                          aria-hidden="true"
-                          fill="none"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                          ></path>
-                        </svg>
-                        <span>Profile</span>
-                      </a>
-                    </li>
-                    
-                    <li class="flex">
-                      <a
-                        class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="../pages/login.php"
-                      >
-                        <svg
-                          class="w-4 h-4 mr-3"
-                          aria-hidden="true"
-                          fill="none"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
-                          ></path>
-                        </svg>
-                        <span>Log out</span>
-                      </a>
-                    </li>
-                  </ul>
-                </template>
-              </li> -->
+               
             </ul>
           </div>
         </header>
@@ -436,6 +360,14 @@
             </h2>
           
             <!-- Cards -->
+            <?php
+                require '../DatabaseConnection/dbcon.php';
+                $mail=$_SESSION['email'];
+                $query =mysqli_query($conn,"SELECT user_id FROM `user` where `user_email`='$mail'  ") or die ($conn->error);
+                $row=mysqli_fetch_array($query);
+                $us_id=$row['user_id'];
+                $query1 =mysqli_query($conn,"SELECT * FROM `user_details` where `user_id`='$us_id'  ")->num_rows;
+                if($query1>0){ ?>
             <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
               <!-- Card -->
               <div
@@ -450,6 +382,12 @@
                     ></path>
                   </svg>
                 </div>
+                <?php
+                $query2 =mysqli_query($conn,"SELECT p.*,l.mng_id FROM user u,user_details us,link l,pg p where u.user_email='$mail' and us.user_id=u.user_id  and l.pg_id=p.pg_id ") or die ($conn->error);
+                $row2=mysqli_fetch_array($query2);
+                $mn_id=$row2['mng_id'];
+                $query5 =mysqli_query($conn,"SELECT * FROM issues i,link l,user_details us where i.mng_id='$mn_id' and i.mng_id=l.mng_id and l.pg_id=us.pg_id and us.user_id='$us_id' ") ->num_rows;
+                 ?>
                 <div>
                   <p
                     class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
@@ -459,7 +397,7 @@
                   <p
                     class="text-lg font-semibold text-gray-700 dark:text-gray-200"
                   >
-                  ₹6000/-
+                  ₹<?php echo $row2['amt_per_person']; ?>/-
                   </p>
                 </div>
               </div>
@@ -487,7 +425,7 @@
                   <p
                     class="text-lg font-semibold text-gray-700 dark:text-gray-200"
                   >
-                    ₹12,000/-
+                    ₹<?php echo $row2['advance_amt']; ?>/-
                   </p>
                 </div>
               </div>
@@ -536,17 +474,19 @@
                   <p
                     class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
                   >
-                    Issues Pending
+                    Issues Pending In PG
                   </p>
                   <p
                     class="text-lg font-semibold text-gray-700 dark:text-gray-200"
                   >
-                    4
+                  <?php echo $query5; ?>
                   </p>
                 </div>
                 
               </div>
-            </div>
+            </div><?php }
+            else{
+            ?>
             <div
             class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
           >
@@ -573,7 +513,7 @@
                 <span><a href="dashstu.php">Book</a></span>
               </button>  
             </p>
-            </div>
+            </div><?php }?>
           </div>
   </body>
 </html>

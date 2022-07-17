@@ -42,7 +42,7 @@ class Reserve {
   }
 
   // (E) SAVE RESERVATION
-  function save ($sessid, $userid, $seats) {
+  function save ($sessid, $userid, $seats,$ph) {
     $sql = "INSERT INTO `bookings` (`session_id`, `seat_id`, `user_id`) VALUES ";
     $data = [];
     foreach ($seats as $seat) {
@@ -51,8 +51,11 @@ class Reserve {
       $data[] = $seat;
       $data[] = $userid;
     }
+    date_default_timezone_set('Asia/Kolkata');
+    $date = date('d-m-y');
     $sql = substr($sql, 0, -1);
     $this->query($sql, $data);
+    $this->query("INSERT into user_details values(' ','$userid','$sessid','$ph','$date','Unpayed')");
     return true;
   }
 }

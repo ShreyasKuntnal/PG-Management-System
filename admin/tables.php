@@ -80,9 +80,10 @@
               </a>
             </li>
             <li class="relative px-6 py-3">
+              
               <a
-                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="charts.php"
+              class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="seats.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -95,11 +96,10 @@
                   stroke="currentColor"
                 >
                   <path
-                    d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
+                    d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
                   ></path>
-                  <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
                 </svg>
-                <span class="ml-4">Charts</span>
+                <span class="ml-4">Booking</span>
               </a>
             </li>
             <li class="relative px-6 py-3">
@@ -253,9 +253,10 @@
               </a>
             </li>
             <li class="relative px-6 py-3">
+              
               <a
-                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="charts.php"
+              class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="seats.php"
               >
                 <svg
                   class="w-5 h-5"
@@ -268,11 +269,10 @@
                   stroke="currentColor"
                 >
                   <path
-                    d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
+                    d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
                   ></path>
-                  <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
                 </svg>
-                <span class="ml-4">Charts</span>
+                <span class="ml-4">Booking</span>
               </a>
             </li>
             <li class="relative px-6 py-3">
@@ -528,6 +528,7 @@
                       <!-- <th class="px-4 py-3"></th> -->
                       <th class="px-4 py-3">Contact_Number</th>
                       <th class="px-4 py-3">Date of join</th>
+                      <th class="px-4 py-3">Payment Status</th>
                     </tr>
                   </thead>
                   <tbody
@@ -535,11 +536,15 @@
                   >
                   <?php 
                     require '../DatabaseConnection/dbcon.php';
-                    $query=mysqli_query($conn,"SELECT * FROM user");
-                    $row=mysqli_fetch_array($query);
-                    $user_id=$row['user_id'];
-                    $query1=mysqli_query($conn,"SELECT * FROM user_details where `user_id`=$user_id ");
+                $mail=$_SESSION['email'];
+                $query2 =mysqli_query($conn,"SELECT mng_id FROM `manager` where `mng_email`='$mail'  ") or die ($conn->error);
+                $row2=mysqli_fetch_array($query2);
+                $mn_id=$row2['mng_id'];
+                    $query1=mysqli_query($conn,"SELECT us.* FROM user_details us,link l where l.mng_id='$mn_id' and l.pg_id=us.pg_id ")or die ($conn->error);
 							  while($row1=mysqli_fetch_array($query1)){
+                  $us_id=$row1['user_id'];
+                  $query=mysqli_query($conn,"SELECT user_name FROM user where `user_id`=$us_id  ")or die ($conn->error);
+                  $row=mysqli_fetch_array($query);
                   ?>
                     <tr class="text-gray-700 dark:text-gray-400">
                       <td class="px-4 py-3">
@@ -553,9 +558,11 @@
                       <td class="px-4 py-3 text-sm">
                       <?php echo $row1['ph_no'];?>
                       </td>
-                     
                       <td class="px-4 py-3 text-sm">
                       <?php echo $row1['date_of_join'];?>
+                      </td>
+                      <td class="px-4 py-3 text-sm">
+                      <?php echo $row1['pay_status'];?>
                       </td>
                     </tr> <?php }?>
                   </tbody>

@@ -14,6 +14,7 @@
       defer
     ></script>
     <script src="../assets/js/init-alpine.js"></script>
+    <?php include('session.php');?>
   </head>
   <body>
     <div
@@ -379,7 +380,7 @@
                       type="checkbox" name="with[]"
                       class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                       name="accountType"
-                      value="Food" required
+                      value="Food" 
                     />
                     <span class="ml-2">Food</span>
                   </label>
@@ -481,6 +482,10 @@
     require '../DatabaseConnection/dbcon.php';
       if(isset($_POST['send'])){
         $name=$_POST['name'];
+        $mail=$_SESSION['email'];
+                $query2 =mysqli_query($conn,"SELECT l.mng_id FROM link l,user u,user_details us where u.user_email='$mail' and us.user_id=u.user_id and us.pg_id=l.pg_id ") or die ($conn->error);
+                $row2=mysqli_fetch_array($query2);
+                $mn_id=$row2['mng_id'];
         $checkbox1=$_POST['with'];  
         $chk="";  
         foreach($checkbox1 as $chk1)  
@@ -490,7 +495,7 @@
         $desc=$_POST['desc'];
         date_default_timezone_set('Asia/Kolkata');
         $date = date('d-m-y');
-        $conn->query("INSERT into issues(name,type,description,status_date,status) values('$name','$chk','$desc','$date','Pending')") or die($conn->error);
+        $conn->query("INSERT into issues(name,mng_id,type,description,status_date,status) values('$name','$mn_id','$chk','$desc','$date','Pending')") or die($conn->error);
         ?><script>alert("Your Issue is Registerd and We are redirecting you to Dashboard");window.location='dashstu2.php';</script><?php
       }
     ?>

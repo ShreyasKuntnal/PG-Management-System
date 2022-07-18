@@ -42,7 +42,7 @@
         <div class="py-4 text-gray-500 dark:text-gray-400">
           <a
             class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
-            href="index.php"
+            href="dashstu2.php"
           >
             Hote Payant
           </a>
@@ -151,7 +151,7 @@
         <div class="py-4 text-gray-500 dark:text-gray-400">
           <a
             class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
-            href="index.php"
+            href="dashstu2.php"
           >
             Hote Payant
           </a>
@@ -335,7 +335,7 @@
                 >
                   <a
                   class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                  href="../pages/login.php"
+                  href="../login.php"
                   >
                   <svg
                     class="w-4 h-4 mr-3"

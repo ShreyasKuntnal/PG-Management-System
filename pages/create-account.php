@@ -108,7 +108,7 @@
               <p class="mt-4">
                 <a
                   class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline"
-                  href="login.php"
+                  href="../login.php"
                 >
                   Already have an account? Login
                 </a>
@@ -130,7 +130,7 @@
                   ?>
                           <script>
                           alert( 'Successfully Registered');
-                           window.location='login.php';
+                           window.location='../login.php';
                           </script>
                         <?php
                   }else{
@@ -167,7 +167,7 @@
                   ?>
                           <script>
                           alert( 'Successfully Registered');
-                           window.location='login.php';
+                           window.location='../login.php';
                           </script>
                         <?php
                   }else{

@@ -38,7 +38,7 @@
         <div class="py-4 text-gray-500 dark:text-gray-400">
           <a
             class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
-            href="index.php"
+            href="dashstu2.php"
           >
             Hote Payant
           </a>
@@ -172,7 +172,7 @@
         <div class="py-4 text-gray-500 dark:text-gray-400">
           <a
             class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
-            href="index.php"
+            href="dashstu2.php"
           >
             Hote Payant
           </a>
@@ -299,7 +299,7 @@
                 >
                   <a
                   class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                  href="../pages/login.php"
+                  href="../login.php"
                   >
                   <svg
                     class="w-4 h-4 mr-3"
@@ -414,12 +414,12 @@
                             <td class="px-4 py-3">
                               <div class="flex items-center space-x-4 text-sm">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3886.8783262050792!2d77.624621!3d13.043416!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6942e3fff56e1068!2sSri%20Subramanyeswara%20Boys%20PG!5e0!3m2!1sen!2sin!4v1640248799118!5m2!1sen!2sin" width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                                <button
+                  <a href="booking_copy.php?myVar=<?php echo $row2['pg_id']; ?>" onclick="post"><button
                   class="px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
                 >
-                  <a href="booking_copy.php?myVar=<?php echo $row2['pg_id']; ?>" onclick="post">Book</a>
+                  Book
 
-                              </button>
+                              </button></a>
                               </div>
                             </td>
                           </tr> <?php }?>

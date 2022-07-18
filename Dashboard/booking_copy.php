@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../assets/css/tailwind.output.css" />
     <?php include('session.php');?>
     <style type="text/css">
-      #seatsDiagram td,
+      /* #seatsDiagram td,
     #displaySeats td{
         padding: 0.5rem;
         text-align: center;
@@ -60,7 +60,7 @@
     #displaySeats .space{
         background-color: #1e2c4b;
         border: none;
-    }
+    } */
     </style>
     <script
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
@@ -80,7 +80,7 @@
         <div class="py-4 text-gray-500 dark:text-gray-400">
           <a
             class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
-            href="index.php"
+            href="dashstu2.php"
           >
             Hote Payant
           </a>
@@ -212,7 +212,7 @@
           <div class="py-4 text-gray-500 dark:text-gray-400">
             <a
               class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
-              href="index.php"
+              href="dashstu2.php"
             >
               Hote Payant
             </a>
@@ -314,7 +314,7 @@
             </ul>
           </div>
       </aside>
-      <div class="flex flex-col flex-1">
+      <div class="flex flex-col flex-1 w-full">
         <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
           <div
             class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300"
@@ -340,6 +340,12 @@
             </button>
             <!-- Search input -->
             <div class="flex justify-center flex-1 lg:mr-32">
+              <div
+                class="relative w-full max-w-xl mr-6 focus-within:text-purple-500"
+              >
+              </div>
+            </div>
+            <ul class="flex items-center flex-shrink-0 space-x-6">
               
                 <button
                   class="align-middle rounded-full focus:shadow-outline-purple focus:outline-none"
@@ -441,7 +447,8 @@
       Mobile Number:
       <input type="text" name="ph_no" placeholder="Enter Mobile Number " required/>
     </form>
-    <button onclick="reserve.save()">Reserve Seats</button>
+    <br>
+    <button onclick="reserve.save()" class="px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" style="width:20%; margin:1rem; margin-left: 5rem;">Reserve Seats</button>
           
     </script>
     

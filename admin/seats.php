@@ -449,7 +449,7 @@
     ?>
 
     <!-- (C) DRAW SEATS LAYOUT -->
-    <div id="layout"><?php
+    <div id="layout" style="margin:2em; margin-left:3em"><?php
       foreach ($seats as $s) {
         $taken = is_numeric($s["user_id"]);
         printf("<div class='seat%s'%s>%s</div>",

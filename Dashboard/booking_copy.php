@@ -426,7 +426,7 @@
     ?>
 
     <!-- (C) DRAW SEATS LAYOUT -->
-    <div id="layout"><?php
+    <div id="layout" style="margin:2em; margin-left:3em"><?php
       foreach ($seats as $s) {
         $taken = is_numeric($s["user_id"]);
         printf("<div class='seat%s'%s>%s</div>",
@@ -444,12 +444,22 @@
     <form id="ninja" method="post" action="4-save.php">
       <input type="hidden" name="sessid" value="<?=$sessid?>"/>
       <input type="hidden" name="userid" value="<?=$userid?>"/>
-      Mobile Number:
-      <input type="text" name="ph_no" placeholder="Enter Mobile Number " required/>
+      <div
+              class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800" style="width:50%; margin-left: 2em;"
+            >
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400"> Mobile Number</span>
+                <input type="text" name="ph_no" style="width:50%;"
+                  class="block mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  placeholder="Enter Mobile Number " required
+                />
+              </label>
+              <button onclick="reserve.save()" 
+              class="px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" 
+              style="width:50%; margin:1rem; margin-left: 5rem;">Reserve Seats</button>
+    </div>
     </form>
-    <br>
-    <button onclick="reserve.save()" class="px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" style="width:20%; margin:1rem; margin-left: 5rem;">Reserve Seats</button>
-          
+             
     </script>
     
     </div>

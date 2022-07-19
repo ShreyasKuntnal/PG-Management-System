@@ -56,7 +56,7 @@ class Reserve {
     $sql = substr($sql, 0, -1);
     $this->query($sql, $data);
     $this->query("INSERT into user_details values(' ','$userid','$sessid','$ph','$date','Unpayed')");
-    $this->query("UPDATE")
+    $this->query("UPDATE user set book_status='booked' where user_id='$userid'");
     return true;
   }
 }

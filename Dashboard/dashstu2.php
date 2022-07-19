@@ -353,21 +353,30 @@
         </header>
         <main class="h-full overflow-y-auto">
           <div class="container px-6 mx-auto grid">
-            <h2
-              class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
-            >
-              Dashboard<hr>
-            </h2>
-          
-            <!-- Cards -->
-            <?php
+          <?php
                 require '../DatabaseConnection/dbcon.php';
                 $mail=$_SESSION['email'];
                 $query =mysqli_query($conn,"SELECT user_id FROM `user` where `user_email`='$mail'  ") or die ($conn->error);
                 $row=mysqli_fetch_array($query);
                 $us_id=$row['user_id'];
-                $query1 =mysqli_query($conn,"SELECT * FROM `user_details` where `user_id`='$us_id'  ")->num_rows;
+                $query6 =mysqli_query($conn,"SELECT * FROM `user_details` where `user_id`='$us_id'  ");
+                $row9=mysqli_fetch_array($query6);
+                $query1=$query6->num_rows;
+                
                 if($query1>0){ ?>
+            <h2
+              class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+            >
+            <?php $res=$row9['pg_id'];
+                $query3=mysqli_query($conn,"SELECT * FROM `pg` where `pg_id`='$res'  ") or die ($conn->error);
+                $row8=mysqli_fetch_array($query3);
+                echo $row8['name'];
+                ?>
+              <hr>
+            </h2>
+          
+            <!-- Cards -->
+           
             <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
               <!-- Card -->
               <div

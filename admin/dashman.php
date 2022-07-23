@@ -74,7 +74,14 @@
               </li>
           </ul>
           <ul>
-            <li class="relative px-6 py-3">
+          <?php
+                require '../DatabaseConnection/dbcon.php';
+                $mail=$_SESSION['email'];
+                
+                $query11 =mysqli_query($conn,"SELECT * FROM manager m,link l,pg p where m.mng_email='$mail' and m.mng_id=l.mng_id and p.pg_id=l.pg_id  ") or die ($conn->error);
+                $numberofrows=$query11->num_rows;
+                if($numberofrows==0){ ?>
+                  <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="forms.php"
@@ -96,6 +103,8 @@
                 <span class="ml-4">Forms</span>
               </a>
             </li>
+              <?php  }
+                 else{?>
             <li class="relative px-6 py-3">
               <a
               class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
@@ -184,7 +193,7 @@
                 <span class="ml-4">Issues</span>
               </a>
             </li>
-            
+            <?php }?>
           </ul>
           
         </div>
@@ -249,7 +258,15 @@
             </li>
           </ul>
           <ul>
-            <li class="relative px-6 py-3">
+            
+            <?php
+                require '../DatabaseConnection/dbcon.php';
+                $mail=$_SESSION['email'];
+                
+                $query11 =mysqli_query($conn,"SELECT * FROM manager m,link l,pg p where m.mng_email='$mail' and m.mng_id=l.mng_id and p.pg_id=l.pg_id  ") or die ($conn->error);
+                $numberofrows=$query11->num_rows;
+                if($numberofrows==0){ ?>
+                  <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="forms.php"
@@ -271,6 +288,8 @@
                 <span class="ml-4">Forms</span>
               </a>
             </li>
+              <?php  }
+                 else{?>
             <li class="relative px-6 py-3">
               <a
               class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
@@ -359,7 +378,7 @@
                 <span class="ml-4">Issues</span>
               </a>
             </li>
-            
+            <?php }?>
           </ul>
           
         </div>

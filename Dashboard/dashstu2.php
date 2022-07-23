@@ -485,7 +485,7 @@
                 </div>
               </div>
               <!-- Card -->
-              <div
+              <!-- <div
                 class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
               >
                 <div
@@ -508,11 +508,11 @@
                   <p
                     class="text-lg font-semibold text-gray-700 dark:text-gray-200"
                   >
-                  <?php echo $query5; ?>
+                  <?//php echo $query5; ?>
                   </p>
                 </div>
                 
-              </div>
+              </div> -->
             </div><?php }
             else{
             ?>

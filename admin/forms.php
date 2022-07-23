@@ -784,7 +784,7 @@
                   $date = date('d-m-y h:i:s');
                   $conn->query("INSERT INTO `sessions` values('$pg_id','ROOM-A','$date')")or die($conn->error);
                   ?>
-                  <script>alert("PG Added Succesfull and Redirecting to Dashboard");window.location='dashman.php';</script>
+                  <script>window.location='dashman.php';</script>
                   <?php
                 }
             ?>

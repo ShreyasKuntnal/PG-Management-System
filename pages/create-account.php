@@ -133,7 +133,6 @@
                     //$conn->query("insert into voters(id_number, password, firstname,lastname, gender,Age,status) VALUES('$id_number', '".md5($password)."','$firstname','$lastname', '$gender', '$age','Unvoted')");
                   ?>
                           <script>
-                          alert( 'Successfully Registered');
                            window.location='../login.php';
                           </script>
                         <?php
@@ -170,7 +169,6 @@
                     mail($to, $subject, $message, $headers); // Send our email
                   ?>
                           <script>
-                          alert( 'Successfully Registered');
                            window.location='../login.php';
                           </script>
                         <?php

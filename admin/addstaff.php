@@ -438,14 +438,6 @@
                         </span>
                       </a>
                     </li>
-                    <!-- <li class="flex">
-                      <a
-                        class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="#"
-                      >
-                        <span>Alerts</span>
-                      </a>
-                    </li> -->
                   </ul>
                 </template>
               </li>
@@ -543,7 +535,7 @@
               >
                 Cancel
               </button>
-              <input type="submit" value="Send" name="save"
+              <input type="submit" value="Add" name="save"
                  class="px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
                 >
             </div> 

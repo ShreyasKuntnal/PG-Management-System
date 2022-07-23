@@ -489,7 +489,7 @@
                                     require '../DatabaseConnection/dbcon.php';
                                     if(isset($_POST['pay'])){
                                       $conn->query("UPDATE user_details set pay_status='Payed'") or die ($conn->error);
-                                      ?><script>alert("Amount Paid Successfully");</script>
+                                      ?><script></script>
                                       <?php
                                     }
                                    ?>

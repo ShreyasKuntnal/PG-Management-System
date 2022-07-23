@@ -496,7 +496,7 @@
         date_default_timezone_set('Asia/Kolkata');
         $date = date('d-m-y');
         $conn->query("INSERT into issues(name,mng_id,type,description,status_date,status) values('$name','$mn_id','$chk','$desc','$date','Pending')") or die($conn->error);
-        ?><script>alert("Your Issue is Registerd and We are redirecting you to Dashboard");window.location='dashstu2.php';</script><?php
+        ?><script>window.location='dashstu2.php';</script><?php
       }
     ?>
     

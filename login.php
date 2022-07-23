@@ -104,7 +104,7 @@
         {
           if( $row1['mng_pass'] == md5($pass)){
             
-            ?><script>alert("Loggined Succesfully");window.location='admin/dashman.php'</script><?php
+            ?><script>window.location='admin/dashman.php'</script><?php
           }
           else{ ?>
           <script>
@@ -116,7 +116,7 @@
         }
         else if($nummerOfrowsOfuser>0){
           if( $row2['user_pass'] == md5($pass)){
-            ?> <script>alert("Loggined Succesfully");window.location='Dashboard/dashstu2.php'</script><?php
+            ?> <script>window.location='Dashboard/dashstu2.php'</script><?php
         }
         else{ ?>
         <script>

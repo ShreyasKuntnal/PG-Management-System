@@ -70,6 +70,19 @@
               </a>
             </li>
           </ul>
+          <?php
+                require '../DatabaseConnection/dbcon.php';
+                $mail=$_SESSION['email'];
+                $query2 =mysqli_query($conn,"SELECT user_id FROM `user` where `user_email`='$mail'  ") or die ($conn->error);
+                $row2=mysqli_fetch_array($query2);
+                $us_id=$row2['user_id'];
+                $query2 =mysqli_query($conn,"SELECT * FROM user u,user_details us,link l,pg p where u.user_email='$mail' and us.user_id=u.user_id and us.pg_id=l.pg_id  ") or die ($conn->error);
+                $numberofrows=$query2->num_rows;
+                $row2=mysqli_fetch_array($query2);
+                if($numberofrows==0){
+                  
+                }
+                 else{?>
           <ul>
             <li class="relative px-6 py-3">
                 <span
@@ -119,7 +132,7 @@
                   <span class="ml-4">Issues</span>
                 </a>
               </li>
-          </ul>
+          </ul><?php }?>
           <div class="px-6 my-6">
             </div>
         </div>
@@ -179,6 +192,16 @@
                   </a>
                 </li>
               </ul>
+              <?php
+                require '../DatabaseConnection/dbcon.php';
+                $mail=$_SESSION['email'];
+                
+                $query11 =mysqli_query($conn,"SELECT * FROM user u,user_details us,link l,pg p where u.user_email='$mail' and us.user_id=u.user_id and us.pg_id=l.pg_id  ") or die ($conn->error);
+                $numberofrows=$query11->num_rows;
+                if($numberofrows==0){
+                  
+                }
+                 else{?>
               <ul>
                 <li class="relative px-6 py-3">
                     <span
@@ -228,7 +251,7 @@
                       <span class="ml-4">Issues</span>
                     </a>
                   </li>
-          <ul>
+          <ul><?php }?>
           </ul>
           <div class="px-6 my-6"> 
           </div>
@@ -419,8 +442,11 @@
                 $row2=mysqli_fetch_array($query2);
                 $us_id=$row2['user_id'];
                 $query2 =mysqli_query($conn,"SELECT * FROM user u,user_details us,link l,pg p where u.user_email='$mail' and us.user_id=u.user_id and us.pg_id=l.pg_id  ") or die ($conn->error);
+                $numberofrows=$query2->num_rows;
                 $row2=mysqli_fetch_array($query2);
-                
+                if($numberofrows==0){
+
+                }
                  ?>
                               <div class="card-body pt-0 p-3 text-center">
                                 <h6 class="text-center mb-0">Rent</h6>

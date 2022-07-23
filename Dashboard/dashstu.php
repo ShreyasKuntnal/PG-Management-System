@@ -97,6 +97,16 @@
               </template>
             </li>
           </ul>
+          <?php
+                require '../DatabaseConnection/dbcon.php';
+                $mail=$_SESSION['email'];
+                
+                $query11 =mysqli_query($conn,"SELECT * FROM user u,user_details us,link l,pg p where u.user_email='$mail' and us.user_id=u.user_id and us.pg_id=l.pg_id  ") or die ($conn->error);
+                $numberofrows=$query11->num_rows;
+                if($numberofrows==0){
+                  
+                }
+                 else{?>
           <ul>
             <li class="relative px-6 py-3">
               <a
@@ -142,7 +152,7 @@
                   <span class="ml-4">Issues</span>
                 </a>
               </li>
-          </ul>
+          </ul><?php }?>
         </div>
       </aside>
       <!-- Mobile sidebar -->
@@ -207,6 +217,16 @@
             </template>
             </li>
           </ul>
+          <?php
+                require '../DatabaseConnection/dbcon.php';
+                $mail=$_SESSION['email'];
+                
+                $query11 =mysqli_query($conn,"SELECT * FROM user u,user_details us,link l,pg p where u.user_email='$mail' and us.user_id=u.user_id and us.pg_id=l.pg_id  ") or die ($conn->error);
+                $numberofrows=$query11->num_rows;
+                if($numberofrows==0){
+                  
+                }
+                 else{?>
           <ul>
             <li class="relative px-6 py-3">
               <a
@@ -254,7 +274,7 @@
             </li>
             
           </ul>
-          
+          <?php }?>
         </div>
       </aside>
       <div class="flex flex-col flex-1 w-full">

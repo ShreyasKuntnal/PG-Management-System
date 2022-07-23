@@ -122,6 +122,10 @@
                 $email=$_POST['mail'];
                 $pass1=$_POST['pass1'];
                 $pass2=$_POST['pass2'];
+                //$query1 = $conn->query("SELECT * FROM manager WHERE mng_email='$email'")->num_rows or die ($conn->error);
+			          
+                //$query2 = $conn->query("SELECT * FROM user WHERE user_email='$email'")->num_rows or die ($conn->error);
+			         
                 if($type=='manager')
                 {
                   if ($pass1 == $pass2) {

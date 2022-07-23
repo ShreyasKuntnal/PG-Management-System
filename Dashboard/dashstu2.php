@@ -73,6 +73,16 @@
                 </template>
               </li>
           </ul>
+          <?php
+                require '../DatabaseConnection/dbcon.php';
+                $mail=$_SESSION['email'];
+                
+                $query11 =mysqli_query($conn,"SELECT * FROM user u,user_details us,link l,pg p where u.user_email='$mail' and us.user_id=u.user_id and us.pg_id=l.pg_id  ") or die ($conn->error);
+                $numberofrows=$query11->num_rows;
+                if($numberofrows==0){
+                  
+                }
+                 else{?>
           <ul>
             <li class="relative px-6 py-3">
               <a
@@ -120,7 +130,7 @@
             </li>
             
           </ul>
-          
+          <?php }?>
         </div>
       </aside>
       <!-- Mobile sidebar -->
@@ -182,6 +192,16 @@
               </a>
             </li>
           </ul>
+          <?php
+                require '../DatabaseConnection/dbcon.php';
+                $mail=$_SESSION['email'];
+                
+                $query11 =mysqli_query($conn,"SELECT * FROM user u,user_details us,link l,pg p where u.user_email='$mail' and us.user_id=u.user_id and us.pg_id=l.pg_id  ") or die ($conn->error);
+                $numberofrows=$query11->num_rows;
+                if($numberofrows==0){
+                  
+                }
+                 else{?>
           <ul>
             <li class="relative px-6 py-3">
               <a
@@ -229,7 +249,7 @@
             </li>
             
           </ul>
-          
+          <?php }?>
         </div>
       </aside>
       <div class="flex flex-col flex-1 w-full">
@@ -496,6 +516,12 @@
             </div><?php }
             else{
             ?>
+            <h2
+              class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+            >
+              Dashboard
+              <hr>
+            </h2>
             <div
             class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
           >

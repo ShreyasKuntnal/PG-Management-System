@@ -13,55 +13,7 @@
     
     <link rel="stylesheet" href="../assets/css/tailwind.output.css" />
     <?php include('session.php');?>
-    <style type="text/css">
-      /* #seatsDiagram td,
-    #displaySeats td{
-        padding: 0.5rem;
-        text-align: center;
-        margin: 0.2rem;
-        width: 50px;
-        border: 3px solid transparent;
-        display: inline-block;
-        background-color: #efefef;
-        border-radius: 5px;
-    }
-
-    #displaySeats{
-        margin: 3rem auto 1rem auto;
-    }
-
-
-      #seatsDiagram{
-        width: 100%;
-        margin-bottom: 1rem;
-    }
-
-    #seatsDiagram  td.selected{
-        background-color: #037192;
-        -webkit-animation-name: rubberBand;
-        animation-name: rubberBand;
-        animation-duration: 300ms;
-        animation-fill-mode: both;
-    }
-
-    #seatsDiagram td.notAvailable,
-    #displaySeats td.notAvailable
-    {
-        color: white;
-        background-color: #db2619;
-    }
-
-    #seatsDiagram td:not(.space,.notAvailable):hover{
-        cursor: pointer;
-        border-color:#037192;
-    }
-
-    #seatsDiagram .space,
-    #displaySeats .space{
-        background-color: #1e2c4b;
-        border: none;
-    } */
-    </style>
+  
     <script
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
       defer
@@ -135,8 +87,18 @@
                 <span class="ml-4">Booking</span>
               </a>
             </li>
-           
-          
+          </ul>
+          <?php
+                require '../DatabaseConnection/dbcon.php';
+                $mail=$_SESSION['email'];
+                
+                $query11 =mysqli_query($conn,"SELECT * FROM user u,user_details us,link l,pg p where u.user_email='$mail' and us.user_id=u.user_id and us.pg_id=l.pg_id  ") or die ($conn->error);
+                $numberofrows=$query11->num_rows;
+                if($numberofrows==0){
+                  
+                }
+                 else{?>
+          <ul>
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
@@ -181,7 +143,7 @@
                 <span class="ml-4">Issues</span>
               </a>
             </li> 
-          </ul>
+          </ul><?php }?>
         </div>
       </aside>
       <!-- Mobile sidebar -->
@@ -267,6 +229,16 @@
                   <span class="ml-4">Booking</span>
                 </a>
               </li>
+              <?php
+                require '../DatabaseConnection/dbcon.php';
+                $mail=$_SESSION['email'];
+                
+                $query11 =mysqli_query($conn,"SELECT * FROM user u,user_details us,link l,pg p where u.user_email='$mail' and us.user_id=u.user_id and us.pg_id=l.pg_id  ") or die ($conn->error);
+                $numberofrows=$query11->num_rows;
+                if($numberofrows==0){
+                  
+                }
+                 else{?>
               <li class="relative px-6 py-3">
                 <a
                   class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
@@ -310,7 +282,7 @@
                   </svg>
                   <span class="ml-4">Issues</span>
                 </a>
-              </li>
+              </li><?php }?>
             </ul>
           </div>
       </aside>

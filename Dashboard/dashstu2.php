@@ -459,7 +459,7 @@
                   <p
                     class="text-lg font-semibold text-gray-700 dark:text-gray-200"
                   >
-                    03/01/2022
+                    25/07/2022
                   </p>
                 </div>
               </div>

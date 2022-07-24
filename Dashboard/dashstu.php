@@ -358,32 +358,7 @@
                     
                   </h4> -->
       
-                  <div class="flex justify-center flex-1 lg:mr-32">
-                    <div
-                      class="relative w-full max-w-xl mr-6 focus-within:text-purple-500"
-                    >
-                      <div class="absolute inset-y-0 flex items-center pl-2">
-                        <svg
-                          class="w-4 h-4"
-                          aria-hidden="true"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                            clip-rule="evenodd"
-                          ></path>
-                        </svg>
-                      </div>
-                      <input
-                        class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
-                        type="text"
-                        placeholder="Search by Name"
-                        aria-label="Search"
-                      />
-                    </div>
-                  </div>
+                  
                   <br>
                   <div class="w-full overflow-hidden rounded-lg shadow-xs">
                     <div class="w-full overflow-x-auto">
@@ -407,13 +382,16 @@
                           require '../DatabaseConnection/dbcon.php';
                           $query2 =mysqli_query($conn,"SELECT * FROM `pg`") or die ($conn->error);
                           while($row2=mysqli_fetch_array($query2)){
+                            $pg_id=$row2['pg_id'] ;
+                            $query5=mysqli_query($conn,"SELECT m.mng_email FROM `link` l,manager m where l.pg_id=$pg_id and l.mng_id=m.mng_id") or die ($conn->error);
+                            $row5=mysqli_fetch_array($query5);
                         ?>
                           <tr class="text-gray-700 dark:text-gray-400">
                             <td class="px-4 py-3">
                               <div class="flex items-center text-sm">
                                 <div>
-                                    <img src="../assets/images/pg images/venu Pg.jpg" >
-                                  <p class="font-semibold"><a href="#">Venus PG</a></p>
+                                    <img src="../assets/images/<?php echo $row2['image']; ?>" >
+                                  <h2 class="font-semibold"><?php echo $row2['name']; ?></h2>
                                   <p class="text-xs text-gray-600 dark:text-gray-400">
                                     Address:<?php echo $row2['address']; ?><br><br>Rating: 4.6/5<br><br>
                                     Distance:700mtrs from college
@@ -429,11 +407,11 @@
                             <?php echo $row2['sharing_type']; ?>
                             </td>
                             <td class="px-4 py-3 text-sm">
-                              <?php echo $_SESSION['email']; ?>
+                              <?php echo $row5['mng_email']; ?>
                             </td>
                             <td class="px-4 py-3">
                               <div class="flex items-center space-x-4 text-sm">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3886.8783262050792!2d77.624621!3d13.043416!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6942e3fff56e1068!2sSri%20Subramanyeswara%20Boys%20PG!5e0!3m2!1sen!2sin!4v1640248799118!5m2!1sen!2sin" width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="<?php echo $row2['map']; ?>" width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                   <a href="booking_copy.php?myVar=<?php echo $row2['pg_id']; ?>" onclick="post"><button
                   class="px-10 py-4 font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
                 >

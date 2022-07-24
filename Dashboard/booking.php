@@ -650,9 +650,9 @@
     
     
     <script>
-     function pay()
+    function pay()
      {
-       alert("Payment Succesfull\nBooked a Slot Succesfully");
+       alert("Payment Successfull\nBooked a Slot Succesfully");
      }
       var count=0;
       var seats=document.getElementsByClassName("seat");

@@ -302,28 +302,7 @@
                 <span class="ml-4">Booking</span>
               </a>
             </li>
-            <li class="relative px-6 py-3">
-              <a
-                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="payments.php"
-              >
-                <svg
-                  class="w-5 h-5"
-                  aria-hidden="true"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
-                  ></path>
-                </svg>
-                <span class="ml-4">Payments</span>
-              </a>
-            </li>
+           
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
@@ -439,19 +418,7 @@
                     class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700"
                     aria-label="submenu"
                   >
-                    <!-- <li class="flex">
-                      <a
-                        class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="#"
-                      >
-                        <span>Messages</span>
-                        <span
-                          class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-600 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-600"
-                        >
-                          13
-                        </span>
-                      </a>
-                    </li> -->
+                    
                     <li class="flex">
                     <?php 
                    require '../DatabaseConnection/dbcon.php';
@@ -473,14 +440,7 @@
                         </span>
                       </a>
                     </li>
-                    <!-- <li class="flex">
-                      <a
-                        class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                        href="#"
-                      >
-                        <span>Alerts</span>
-                      </a>
-                    </li> -->
+                   
                   </ul>
                 </template>
               </li>
@@ -692,14 +652,14 @@
                   <option value="four">Four</option>
                 </select>
               </label>
-
+                  <br>
               <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Advance Amount</span>
                 <input name="adv"
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="Enter Amount" required
                 />
-                <label id="amt1" style="color:red; visibility: hidden;">Please enter correct amount</label>
+                
               </label>
 
               <label class="block mt-4 text-sm">
@@ -715,14 +675,29 @@
                   <option value="Yearly">Yearly</option>
                 </select>
               </label>
-
+                  <br>
               <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Amount Per Person</span>
                 <input name="amount"
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="Enter Amount" required 
                 />
-                <label id="amt2" style="color:red; visibility: hidden;">Please enter correct amount</label>
+              </label>
+              <br>
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Upload Image</span>
+                <input name="image" type="file"
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  placeholder="Enter Amount" required 
+                />
+              </label>
+              <br>
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Map Link</span>
+                <input name="map" type="text"
+                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  placeholder="Provide Google Map link" required 
+                />
               </label>
               <div class="flex mt-6 text-sm">
                 <label class="flex items-center dark:text-gray-400">
@@ -767,12 +742,21 @@
                   {  
                       $chk .= $chk1.",";  
                   }   
+                  $map=$_POST['map'];
                   $type=$_POST['type'];
                   $adv=$_POST['adv'];
                   $dur=$_POST['dur'];
+                  $image= addslashes(file_get_contents($_FILES['image']['tmp_name']));
+                  $image_name= addslashes($_FILES['image']['name']);
+                  $image_size= getimagesize($_FILES['image']['tmp_name']);
+            
+                  move_uploaded_file($_FILES["image"]["tmp_name"],"../assets/images/pgimg/" . $_FILES["image"]["name"]);			
+                  //$location="upload/" . $_FILES["image"]["name"];
+                      
+                  $location="pgimg/" . $_FILES["image"]["name"];
                   $amount=$_POST['amount'];
                   $mail=$_SESSION['email'];
-                  $conn->query("INSERT INTO pg values(' ','$name','$radio','$address','$chk','$type','$adv','$dur','$amount')")or die($conn->error);
+                  $conn->query("INSERT INTO pg values(' ','$name','$radio','$address','$chk','$type','$adv','$dur','$amount','$location','$map')")or die($conn->error);
                   $query1 =mysqli_query($conn,"SELECT pg_id FROM `pg` where `name`='$name' ") or die ($conn->error);
 						      $row1=mysqli_fetch_array($query1);
                   $query2 =mysqli_query($conn,"SELECT mng_id FROM `manager` where `mng_email`='$mail'  ") or die ($conn->error);
